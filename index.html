@@ -1,1 +1,231 @@
-Hello world.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Systems Blog</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+<article>
+
+<h1>LLM Systems & Inference Engineering</h1>
+
+<p class="blog-meta">A practical deep-dive into modern LLM infrastructure, performance, and optimization.</p>
+
+<hr class="section-break">
+
+<p>
+This blog covers the full stack of large language model systems — from transformer fundamentals to
+multi-GPU distributed inference, memory optimization, and real-world deployment techniques.
+</p>
+
+<p>
+Start from the fundamentals or jump directly into advanced system optimization topics below.
+</p>
+
+
+<!-- ============================= -->
+<!-- FUNDAMENTALS -->
+<!-- ============================= -->
+
+<h2>Foundations</h2>
+
+<div class="spec-cards">
+
+<a class="blog-link spec-card" href="blog/1-transformer-architecture.html">
+<div class="term">Architecture</div>
+<div class="value">Transformer Architecture</div>
+<div class="note">Core building blocks of modern LLMs</div>
+</a>
+
+<a class="blog-link spec-card" href="blog/4-attention-mechanism.html">
+<div class="term">Mechanics</div>
+<div class="value">Attention Mechanism</div>
+<div class="note">How attention works internally</div>
+</a>
+
+<a class="blog-link spec-card" href="blog/3-llm-inference-maths.html">
+<div class="term">Math</div>
+<div class="value">Inference Mathematics</div>
+<div class="note">FLOPs, memory, latency modelling</div>
+</a>
+
+<a class="blog-link spec-card" href="blog/2-gpu-llm-inference-basics.html">
+<div class="term">Hardware</div>
+<div class="value">GPU & LLM Inference Basics</div>
+<div class="note">Memory hierarchy, bandwidth limits</div>
+</a>
+
+</div>
+
+
+<!-- ============================= -->
+<!-- INFERENCE OPTIMIZATION -->
+<!-- ============================= -->
+
+<h2>Inference Optimization</h2>
+
+<div class="spec-cards">
+
+<a class="blog-link spec-card" href="blog/kv-cache.html">
+<div class="term">Memory</div>
+<div class="value">KV Cache</div>
+<div class="note">Speeding up autoregressive decoding</div>
+</a>
+
+<a class="blog-link spec-card" href="blog/batching.html">
+<div class="term">Throughput</div>
+<div class="value">Batching Strategies</div>
+<div class="note">Maximizing GPU utilization</div>
+</a>
+
+<a class="blog-link spec-card" href="blog/9-speculative-decoding.html">
+<div class="term">Latency</div>
+<div class="value">Speculative Decoding</div>
+<div class="note">Reducing token generation time</div>
+</a>
+
+<a class="blog-link spec-card" href="blog/8-quantization.html">
+<div class="term">Compression</div>
+<div class="value">Quantization</div>
+<div class="note">Reducing memory and bandwidth</div>
+</a>
+
+<a class="blog-link spec-card" href="blog/cpu-offloading.html">
+<div class="term">Hybrid</div>
+<div class="value">CPU Offloading</div>
+<div class="note">Managing limited VRAM</div>
+</a>
+
+</div>
+
+
+<!-- ============================= -->
+<!-- KERNEL & GPU OPTIMIZATION -->
+<!-- ============================= -->
+
+<h2>Kernel & GPU Optimization</h2>
+
+<div class="spec-cards">
+
+<a class="blog-link spec-card" href="blog/5-kernel-optim.html">
+<div class="term">Performance</div>
+<div class="value">Kernel Optimization</div>
+<div class="note">Low-level GPU tuning</div>
+</a>
+
+<a class="blog-link spec-card" href="blog/7-triton.html">
+<div class="term">Programming</div>
+<div class="value">Triton Kernels</div>
+<div class="note">Writing custom GPU kernels</div>
+</a>
+
+<a class="blog-link spec-card" href="blog/6-flash-attention.html">
+<div class="term">Memory</div>
+<div class="value">Flash Attention</div>
+<div class="note">IO-aware attention algorithm</div>
+</a>
+
+</div>
+
+
+<!-- ============================= -->
+<!-- MODEL ARCHITECTURES -->
+<!-- ============================= -->
+
+<h2>Model Architectures</h2>
+
+<div class="spec-cards">
+
+<a class="blog-link spec-card" href="blog/10-moe.html">
+<div class="term">Scaling</div>
+<div class="value">Mixture-of-Experts</div>
+<div class="note">Sparse expert routing</div>
+</a>
+
+<a class="blog-link spec-card" href="blog/11-model-pruning.html">
+<div class="term">Compression</div>
+<div class="value">Model Pruning</div>
+<div class="note">Reducing parameter count</div>
+</a>
+
+<a class="blog-link spec-card" href="blog/12-model-distillation.html">
+<div class="term">Training</div>
+<div class="value">Distillation</div>
+<div class="note">Teacher-student learning</div>
+</a>
+
+<a class="blog-link spec-card" href="blog/multimodal-models.html">
+<div class="term">Frontier</div>
+<div class="value">Multimodal Models</div>
+<div class="note">Text + vision + audio systems</div>
+</a>
+
+</div>
+
+
+<!-- ============================= -->
+<!-- SYSTEMS & DEPLOYMENT -->
+<!-- ============================= -->
+
+<h2>Systems & Deployment</h2>
+
+<div class="spec-cards">
+
+<a class="blog-link spec-card" href="blog/13-vllm.html">
+<div class="term">Serving</div>
+<div class="value">vLLM</div>
+<div class="note">Paged attention & serving engine</div>
+</a>
+
+<a class="blog-link spec-card" href="blog/14-multi-node-inference.html">
+<div class="term">Scaling</div>
+<div class="value">Multi-Node Inference</div>
+<div class="note">Distributed GPU inference</div>
+</a>
+
+<a class="blog-link spec-card" href="blog/15-llm-inference-profiling.html">
+<div class="term">Debugging</div>
+<div class="value">Inference Profiling</div>
+<div class="note">Finding bottlenecks</div>
+</a>
+
+<a class="blog-link spec-card" href="blog/gpu-comparaison.html">
+<div class="term">Hardware</div>
+<div class="value">GPU Comparison</div>
+<div class="note">Choosing the right GPU</div>
+</a>
+
+</div>
+
+
+<!-- ============================= -->
+<!-- RETRIEVAL -->
+<!-- ============================= -->
+
+<h2>Retrieval & RAG</h2>
+
+<div class="spec-cards">
+
+<a class="blog-link spec-card" href="blog/sota-retrieval.html">
+<div class="term">Search</div>
+<div class="value">State-of-the-Art Retrieval</div>
+<div class="note">Modern RAG pipelines</div>
+</a>
+
+</div>
+
+
+<hr class="section-break">
+
+<footer>
+    <p>© 2026 · LLM Systems Blog</p>
+</footer>
+
+</article>
+
+</body>
+</html>
