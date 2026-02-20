@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GPU Fundamentals & LLM Inference</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../../css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
 </head>
 <body>
-    <a href="../blogs.html" class="back-link">&larr; Back to Blog</a>
+    <a href="../../index.html" class="back-link">&larr; Back to Blog</a>
 
     <article>
         <h1>LLM Inference &amp; GPU Fundamentals</h1>
@@ -56,13 +56,13 @@
         </ul>
 
         <p>
-            The <strong>NVL form factor</strong> is the standard form factor for inference-focused deployments, as it can be easily added to existing servers without needing 
-            specialized cooling or power infrastructure. It is typically used in 2–4-GPU NVLink-paired setups. 
+            The <strong>NVL form factor</strong> is the standard form factor for inference-focused deployments, as it can be easily added to existing servers without needing
+            specialized cooling or power infrastructure. It is typically used in 2–4-GPU NVLink-paired setups.
         </p>
 
         <p>
-            The <strong>SXM form factor</strong>, in contrast, is designed for maximum performance and power delivery, but requires custom server designs and liquid cooling, 
-            making it more common in training setups. It connects through NVSwitch fabrics, 
+            The <strong>SXM form factor</strong>, in contrast, is designed for maximum performance and power delivery, but requires custom server designs and liquid cooling,
+            making it more common in training setups. It connects through NVSwitch fabrics,
             enabling tightly coupled 8-GPU (or larger) configurations with much higher inter-GPU bandwidth.
         </p>
 
@@ -147,13 +147,13 @@
         </div>
 
         <p>
-            During autoregressive token generation, model weights and KV-cache data are first fetched from large, off-chip 
-            <strong>HBM</strong> (DRAM) through the GPU’s memory controllers into the shared <strong>L2 cache</strong>, which acts as a 
-            high-bandwidth staging buffer for all SMs. From there, active data is pulled into each SM’s on-chip <strong>L1 / shared 
-            memory</strong> (SRAM), where it can be reused efficiently by many threads. Finally, the operands are loaded into 
-            <strong>registers</strong>, the fastest storage level, and supplied directly to the execution units - including 
-            <strong>Tensor Cores</strong> for matrix multiply operations. This hierarchical flow (HBM → L2 → L1/shared → registers → 
-            compute units) repeats for every layer and every generated token, and because the largest transfers occur from HBM, 
+            During autoregressive token generation, model weights and KV-cache data are first fetched from large, off-chip
+            <strong>HBM</strong> (DRAM) through the GPU’s memory controllers into the shared <strong>L2 cache</strong>, which acts as a
+            high-bandwidth staging buffer for all SMs. From there, active data is pulled into each SM’s on-chip <strong>L1 / shared
+            memory</strong> (SRAM), where it can be reused efficiently by many threads. Finally, the operands are loaded into
+            <strong>registers</strong>, the fastest storage level, and supplied directly to the execution units - including
+            <strong>Tensor Cores</strong> for matrix multiply operations. This hierarchical flow (HBM → L2 → L1/shared → registers →
+            compute units) repeats for every layer and every generated token, and because the largest transfers occur from HBM,
             the bandwidth of this off-chip memory typically determines overall inference speed.
         </p>
 
@@ -192,25 +192,25 @@
         <h3>SRAM vs DRAM</h3>
 
         <p>
-            Modern GPUs use two fundamentally different types of memory: <strong>SRAM</strong> and <strong>DRAM</strong>. 
-            <strong>SRAM (Static RAM)</strong> is built directly on the chip using fast transistor cells, giving it extremely 
-            low latency and very high bandwidth, but it is expensive and consumes large area. Because of this, SRAM is used 
+            Modern GPUs use two fundamentally different types of memory: <strong>SRAM</strong> and <strong>DRAM</strong>.
+            <strong>SRAM (Static RAM)</strong> is built directly on the chip using fast transistor cells, giving it extremely
+            low latency and very high bandwidth, but it is expensive and consumes large area. Because of this, SRAM is used
             only for small, performance-critical structures such as registers, L1 cache, shared memory, and L2 cache.
         </p>
 
         <p>
-            In contrast, <strong>DRAM (Dynamic RAM)</strong> stores data in tiny capacitor cells that must be periodically 
-            refreshed, making it much denser and cheaper but significantly slower. GPUs therefore use DRAM for large-capacity 
-            memory like VRAM. Different DRAM technologies exist depending on the workload: 
+            In contrast, <strong>DRAM (Dynamic RAM)</strong> stores data in tiny capacitor cells that must be periodically
+            refreshed, making it much denser and cheaper but significantly slower. GPUs therefore use DRAM for large-capacity
+            memory like VRAM. Different DRAM technologies exist depending on the workload:
 
             <ul>
                 <li><strong>HBM</strong> (High Bandwidth Memory) uses stacked chips on an interposer to provide massive bandwidth for data-center GPUs;</li>
                 <li><strong>GDDR</strong> (e.g., GDDR6) is optimized for high throughput in consumer graphics cards;</li>
                 <li><strong>LPDDR</strong> (e.g., LPDDR5) prioritizes power efficiency for mobile devices.</li>
             </ul>
-             
-            The large speed and latency gap between fast 
-            on-chip SRAM and high-capacity off-chip DRAM is the primary reason memory bandwidth often becomes the bottleneck 
+
+            The large speed and latency gap between fast
+            on-chip SRAM and high-capacity off-chip DRAM is the primary reason memory bandwidth often becomes the bottleneck
             in large-scale GPU workloads such as LLM inference.
         </p>
 
@@ -257,7 +257,7 @@
                 <li> For qwen3-8b, 8B active params → <strong>~16 GFLOP</strong> per token.</li>
             </ul>
 
-            <div class="key-formula">  
+            <div class="key-formula">
                 Bandwidth = bytes moved from HBM / HBM bandwidth. For FP4, each weight is 0.5 bytes; for FP8, each weight is 1 byte.
             </div>
         </p>
@@ -287,7 +287,7 @@
 
         <p>
             MoE reduces compute cost per token but does not proportionally reduce memory bandwidth requirements, which is why MoE inference often remains memory-bound.
-            In each forward pass, we still need to fetch routing data and selected experts' weights from HBM. Memory access can become irregular and reduce cache reuse, 
+            In each forward pass, we still need to fetch routing data and selected experts' weights from HBM. Memory access can become irregular and reduce cache reuse,
             further exacerbating bandwidth bottlenecks.
         </p>
 
@@ -322,14 +322,14 @@
         <h3>Streaming Multiprocessors (SMs): The GPU’s Processing Engines</h3>
 
         <p>
-            The fundamental compute building block of a GPU is the <strong>Streaming Multiprocessor (SM)</strong>. 
-            The H200 NVL contains <strong>132 SMs</strong>, and each SM operates as an independent parallel processor 
+            The fundamental compute building block of a GPU is the <strong>Streaming Multiprocessor (SM)</strong>.
+            The H200 NVL contains <strong>132 SMs</strong>, and each SM operates as an independent parallel processor
             capable of executing thousands of threads concurrently.
         </p>
 
         <p>
-            An SM integrates everything needed to execute GPU programs: execution units, registers, shared memory, 
-            scheduling logic, and control hardware. When a kernel runs, thread blocks are assigned to SMs, which then 
+            An SM integrates everything needed to execute GPU programs: execution units, registers, shared memory,
+            scheduling logic, and control hardware. When a kernel runs, thread blocks are assigned to SMs, which then
             manage execution internally.
         </p>
 
@@ -342,16 +342,16 @@
         <h3>Execution Units Inside an SM</h3>
 
         <p>
-            Each Streaming Multiprocessor contains multiple types of execution units designed for different workloads. 
-            These specialized units allow the GPU to efficiently process both general-purpose computations and 
+            Each Streaming Multiprocessor contains multiple types of execution units designed for different workloads.
+            These specialized units allow the GPU to efficiently process both general-purpose computations and
             large matrix operations used in AI.
         </p>
 
         <h4>CUDA Cores: General-Purpose Arithmetic Units</h4>
 
         <p>
-            <strong>CUDA cores</strong> are the primary scalar execution units inside an SM. They perform standard 
-            arithmetic operations such as addition, multiplication, logical operations, and control flow. 
+            <strong>CUDA cores</strong> are the primary scalar execution units inside an SM. They perform standard
+            arithmetic operations such as addition, multiplication, logical operations, and control flow.
             Each CUDA core executes a single operation per clock cycle on one thread.
         </p>
 
@@ -362,15 +362,15 @@
         </ul>
 
         <p>
-            During AI inference, CUDA cores still play an important role handling activation functions, 
+            During AI inference, CUDA cores still play an important role handling activation functions,
             indexing logic, and non-matrix computations.
         </p>
 
         <h4>Tensor Cores: Matrix Multiplication Engines</h4>
 
         <p>
-            <strong>Tensor Cores</strong> are specialized units designed to accelerate matrix multiply-accumulate 
-            operations - the core computation in deep learning. Instead of processing one value at a time, 
+            <strong>Tensor Cores</strong> are specialized units designed to accelerate matrix multiply-accumulate
+            operations - the core computation in deep learning. Instead of processing one value at a time,
             they operate on small matrices in parallel, delivering extremely high throughput.
         </p>
 
@@ -381,7 +381,7 @@
         </ul>
 
         <p>
-            In LLM inference, Tensor Cores perform nearly all heavy computation, executing the large 
+            In LLM inference, Tensor Cores perform nearly all heavy computation, executing the large
             matrix multiplications that dominate transformer layers.
         </p>
 
@@ -400,52 +400,52 @@
         <h3>Data Flow Inside an SM During LLM Inference</h3>
 
         <p>
-            During transformer inference, data moves through several stages inside each SM. Model weights 
-            and activations are loaded from global memory into on-chip caches, then staged in registers. 
-            These operands are finally fed into Tensor Cores, where matrix multiplications are performed. 
+            During transformer inference, data moves through several stages inside each SM. Model weights
+            and activations are loaded from global memory into on-chip caches, then staged in registers.
+            These operands are finally fed into Tensor Cores, where matrix multiplications are performed.
             The results are written back to registers and eventually stored in global memory.
         </p>
 
         <p>
-            Because Tensor Cores can process data far faster than it can be delivered from HBM, the speed 
+            Because Tensor Cores can process data far faster than it can be delivered from HBM, the speed
             of memory movement - not computation - typically limits overall inference performance.
         </p>
 
         <h3>Why GPUs Use Different Types of Compute Units</h3>
 
         <p>
-            GPUs include both scalar CUDA cores and matrix-focused Tensor Cores because different workloads 
-            require different computational patterns. Traditional graphics and scientific computing rely on 
+            GPUs include both scalar CUDA cores and matrix-focused Tensor Cores because different workloads
+            require different computational patterns. Traditional graphics and scientific computing rely on
             scalar arithmetic, while modern AI workloads are dominated by large matrix multiplications.
         </p>
 
         <p>
-            Tensor Cores provide orders-of-magnitude higher throughput for these operations by processing 
+            Tensor Cores provide orders-of-magnitude higher throughput for these operations by processing
             entire matrix tiles in parallel, whereas CUDA cores handle the surrounding non-matrix logic.
         </p>
 
         <hr class="section-break">
-        
+
         <h2>GPU Execution Model</h2><br>
 
         <h3>Kernels: Programs That Run on the GPU</h3>
 
         <p>
-            A <strong>kernel</strong> is a function executed on the GPU. When a kernel is launched, it runs 
-            many times in parallel across thousands of threads. Each thread executes the same instructions 
+            A <strong>kernel</strong> is a function executed on the GPU. When a kernel is launched, it runs
+            many times in parallel across thousands of threads. Each thread executes the same instructions
             but operates on different data, enabling massive data parallelism.
         </p>
 
         <p>
-            In AI inference, kernels implement operations such as matrix multiplication, attention, 
+            In AI inference, kernels implement operations such as matrix multiplication, attention,
             normalization, and activation functions.
         </p>
 
         <h3>Threads: The Smallest Execution Units</h3>
 
         <p>
-            A <strong>thread</strong> is the smallest unit of execution in a GPU program. Each thread 
-            executes the same kernel code but works on a different portion of data. Threads maintain 
+            A <strong>thread</strong> is the smallest unit of execution in a GPU program. Each thread
+            executes the same kernel code but works on a different portion of data. Threads maintain
             their own registers and private variables.
         </p>
 
@@ -456,7 +456,7 @@
         <h3>Thread Blocks: Groups of Cooperative Threads</h3>
 
         <p>
-            Threads are organized into <strong>thread blocks</strong>, which execute on a single SM. 
+            Threads are organized into <strong>thread blocks</strong>, which execute on a single SM.
             Threads within a block can synchronize and share data using fast on-chip shared memory.
         </p>
 
@@ -467,25 +467,25 @@
         <h3>Grids: The Full Kernel Execution</h3>
 
         <p>
-            A <strong>grid</strong> is the complete collection of thread blocks launched by a kernel. 
+            A <strong>grid</strong> is the complete collection of thread blocks launched by a kernel.
             The GPU distributes these blocks across all available SMs, enabling large-scale parallel execution.
         </p>
 
         <p>
-            This hierarchical structure (grid → blocks → threads) allows GPU programs to scale efficiently 
+            This hierarchical structure (grid → blocks → threads) allows GPU programs to scale efficiently
             across many processing units.
         </p>
 
         <h3>Waves: How Work Flows Across SMs</h3>
 
         <p>
-            Because a GPU has a limited number of SMs, not all thread blocks can run simultaneously. 
-            Instead, blocks are executed in groups called <strong>waves</strong>. Once one wave finishes, 
+            Because a GPU has a limited number of SMs, not all thread blocks can run simultaneously.
+            Instead, blocks are executed in groups called <strong>waves</strong>. Once one wave finishes,
             the next wave is scheduled onto the freed SMs.
         </p>
 
         <p>
-            Large kernels may require many waves to complete, and overall runtime depends on how efficiently 
+            Large kernels may require many waves to complete, and overall runtime depends on how efficiently
             these waves keep the GPU fully occupied.
         </p>
 
@@ -506,25 +506,25 @@
         <h3>SIMT vs SIMD: How GPUs Execute Parallel Instructions</h3>
 
         <p>
-            GPUs use a programming model called <strong>SIMT (Single Instruction, Multiple Threads)</strong>, 
-            which is often confused with <strong>SIMD (Single Instruction, Multiple Data)</strong>. While both 
+            GPUs use a programming model called <strong>SIMT (Single Instruction, Multiple Threads)</strong>,
+            which is often confused with <strong>SIMD (Single Instruction, Multiple Data)</strong>. While both
             execute the same instruction across many data elements, they differ in how parallelism is exposed.
         </p>
 
         <p>
-            In <strong>SIMD</strong>, a single instruction operates on a fixed vector of data within one processor, 
+            In <strong>SIMD</strong>, a single instruction operates on a fixed vector of data within one processor,
             such as CPU vector units (AVX). All elements must follow the same control flow.
         </p>
 
         <p>
-            In contrast, <strong>SIMT</strong> executes many independent threads that each maintain their own 
-            registers and program counters. These threads are grouped into warps, which execute instructions 
-            together in lockstep. If threads in a warp take different execution paths, the GPU must serialize 
+            In contrast, <strong>SIMT</strong> executes many independent threads that each maintain their own
+            registers and program counters. These threads are grouped into warps, which execute instructions
+            together in lockstep. If threads in a warp take different execution paths, the GPU must serialize
             those paths, leading to reduced efficiency known as <strong>warp divergence</strong>.
         </p>
 
         <p>
-            This SIMT model provides far greater flexibility than traditional SIMD, allowing GPUs to efficiently 
+            This SIMT model provides far greater flexibility than traditional SIMD, allowing GPUs to efficiently
             handle complex, irregular workloads such as large-scale AI inference.
         </p>
 
@@ -532,26 +532,26 @@
         <h3>Parallelism and Occupancy: Keeping the GPU Busy</h3>
 
         <p>
-            Each SM can execute thousands of threads simultaneously by rapidly switching between warps. 
-            This ability to keep execution units busy while waiting for memory operations is known as 
-            <strong>occupancy</strong>. High occupancy allows GPUs to hide memory latency and maintain 
+            Each SM can execute thousands of threads simultaneously by rapidly switching between warps.
+            This ability to keep execution units busy while waiting for memory operations is known as
+            <strong>occupancy</strong>. High occupancy allows GPUs to hide memory latency and maintain
             high throughput.
         </p>
 
         <p>
-            Achieving high occupancy is critical for maintaining peak performance in memory-bound workloads 
+            Achieving high occupancy is critical for maintaining peak performance in memory-bound workloads
             such as large language model inference.
         </p>
 
         <div class="note-block">
-            <strong>Occupancy</strong> refers to how many threads are active on an SM at a given time. 
-            High occupancy allows the GPU to hide memory latency by switching to other threads while 
+            <strong>Occupancy</strong> refers to how many threads are active on an SM at a given time.
+            High occupancy allows the GPU to hide memory latency by switching to other threads while
             waiting for data to arrive.
         </div>
 
         <hr class="section-break">
 
-        
+
 
     </article>
 

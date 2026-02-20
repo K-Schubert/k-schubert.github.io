@@ -793,6 +793,40 @@ footer {
     color: #0246a2;
 }
 
+/* Coming soon / disabled blog entries */
+.blog-link.coming-soon {
+    opacity: 0.4;
+    pointer-events: none;
+    cursor: not-allowed;
+    position: relative;
+}
+
+.blog-link.coming-soon .spec-card {
+    background: #f6f8fa;
+    border-color: #e1e4e8;
+}
+
+.blog-link.coming-soon .term,
+.blog-link.coming-soon .value,
+.blog-link.coming-soon .note {
+    color: #6a737d;
+}
+
+.blog-link.coming-soon::after {
+    content: "Coming Soon";
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: #ffd33d;
+    color: #24292e;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.7em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 /* Newsletter signup */
 .newsletter-signup {
     margin: 1.5rem 0;
@@ -862,7 +896,7 @@ footer {
 article {
     margin: 2em auto;
     padding: 0 4em;
-} 
+}
 
 .memory-hierarchy {
     display: grid;

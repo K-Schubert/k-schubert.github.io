@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond Static Models: How Active Inference Could Revolutionize AI</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+</head>
+<body>
+    <a href="../../index.html" class="back-link">&larr; Back to Blog</a>
+
+    <article>
+        <h1>Beyond Static Models: How Active Inference Could Revolutionize AI</h1>
+
+        <p class="blog-meta">AI & Neuroscience &middot; 35 min read</p>
+        <hr class="section-break">
+
+        <p>
+            Modern artificial intelligence has achieved remarkable feats—from generating photorealistic images to writing coherent essays. Yet according to computational neuroscientist Dr. Jeff Beck, we're building these systems on fundamentally flawed assumptions. The problem isn't that our models are too small or our datasets too limited. The problem is that we're treating intelligence as a static pattern-matching exercise rather than what it truly is: a dynamic, embodied process of continuous interaction with an uncertain world.
+        </p>
+
+        <p>
+            What if the future of AI doesn't lie in scaling up Transformers or feeding ever-larger datasets into gradient descent algorithms? What if instead, we need to fundamentally rethink what an "agent" is, how it learns, and why it acts? Drawing on 15 years of research at the intersection of neuroscience, philosophy, and machine learning, Beck presents a provocative alternative: Active Inference—a framework where agents don't passively absorb data but actively seek it out, where learning is continuous rather than episodic, and where safety emerges from equilibrium-seeking behavior rather than monolithic reward functions.
+        </p>
+
+        <p>
+            This article explores Beck's vision for the future of AI, grounded in the Bayesian Brain Hypothesis, the Free Energy Principle, and emergent intelligence. We'll examine why current ML is "sclerotic and rigid," how biological cognition fundamentally differs from standard neural networks, and what a world of multi-agent, gradient-free AI systems might look like.
+        </p>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- VIDEO LINK -->
+        <!-- ============================================================ -->
+
+        <div class="note-block" style="text-align: center; padding: 1.5em;">
+            <p style="margin: 0 0 1em 0;">
+                <strong>Source Material:</strong> This article is based on a conversation between Dr. Tim Scarfe and Dr. Jeff Beck.
+            </p>
+            <a href="https://www.youtube.com/watch?v=c4praCiy9qU"
+               target="_blank"
+               rel="noopener noreferrer"
+               style="color: #0550ae; text-decoration: none; border-bottom: 1px solid #0550ae;">
+                Watch the full podcast on YouTube →
+            </a>
+        </div>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 1: PHILOSOPHY OF MODELS -->
+        <!-- ============================================================ -->
+
+        <h2>The Philosophy of Models and the Bayesian Brain</h2>
+
+        <h3>Does the Brain "Do" Bayesian Inference?</h3>
+
+        <p>
+            One of the most debated questions in computational neuroscience is deceptively simple: Does the brain actually perform Bayesian inference, or does it merely behave <em>as if</em> it does? For Beck, this question misses the point entirely. The distinction between "truly Bayesian" and "effectively Bayesian" is philosophically interesting but scientifically irrelevant. What matters is pragmatic utility.
+        </p>
+
+        <p>
+            The brain operates in an inherently uncertain world. Sensory data is noisy, incomplete, and ambiguous. Bayesian inference provides the most principled mathematical framework for handling uncertainty—combining prior beliefs with new evidence to update our understanding. Whether neurons are literally implementing Bayes' theorem or simply approximating it through their dynamics is beside the point. As Beck notes, paraphrasing the statistician George Box: <strong>"All models are wrong; some are simply more wrong than others."</strong>
+        </p>
+
+        <div class="phase-cards">
+            <div class="phase-card prefill">
+                <h4>Instrumentalism</h4>
+                <p class="what">Models are tools for prediction, not literal descriptions of reality</p>
+                <p class="ai">Even fundamental physics concepts like "electrons" are labels for equations, not ultimate truths we can fully comprehend</p>
+            </div>
+            <div class="phase-card decode">
+                <h4>Pragmatism</h4>
+                <p class="what">The value of a model lies in its usefulness, not its metaphysical truthfulness</p>
+                <p class="ai">Bayesian models of the brain are powerful because they make accurate predictions, not because we can peer inside and see literal probability calculations</p>
+            </div>
+        </div>
+
+        <h3>The Infinite Model Space Problem</h3>
+
+        <p>
+            A crucial insight from Beck's philosophy of science: we can never test an infinite number of models to find the "perfect" truth. Every scientific model is, by definition, an approximation. The electron is not an ontological entity we can hold in our hands—it's a mathematical construct that allows physicists to make extraordinarily precise predictions.
+        </p>
+
+        <p>
+            Similarly, the Bayesian Brain Hypothesis doesn't claim that neurons literally compute posterior probabilities. It claims that <em>modeling</em> the brain as a Bayesian inference machine is exceptionally useful for understanding perception, decision-making, and learning. This instrumentalist stance frees researchers from unproductive metaphysical debates and focuses attention on what matters: building better predictive models.
+        </p>
+
+        <div class="note-block">
+            <p><strong>Key Philosophical Point:</strong> The question isn't "Is the brain Bayesian?" but rather "Is Bayesian modeling the most effective framework for understanding brain function?" Beck's answer, backed by 15 years of research, is an emphatic yes.</p>
+        </div>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 2: TRADITIONAL ML VS ACTIVE INFERENCE -->
+        <!-- ============================================================ -->
+
+        <h2>Traditional Machine Learning vs. Active Inference</h2>
+
+        <h3>The Sclerotic Nature of Standard ML</h3>
+
+        <p>
+            Beck's most pointed critique targets the current paradigm of machine learning: train a model on a massive static dataset, freeze its weights, and deploy it into the world. This approach, dominant in modern Deep Learning, is what Beck calls <strong>"sclerotic"</strong>—rigid, unresponsive, and fundamentally disconnected from how biological intelligence operates.
+        </p>
+
+        <p>
+            The standard ML pipeline looks like this:
+        </p>
+
+        <div class="memory-hierarchy">
+            <div class="memory-tier reg">
+                <div class="tier-header">1. Data Collection</div>
+                <ul>
+                    <li>Gather massive offline datasets (ImageNet, Common Crawl, etc.)</li>
+                    <li>Data is static, curated, and pre-processed</li>
+                    <li>No interaction with the environment during collection</li>
+                </ul>
+            </div>
+            <div class="memory-tier l1">
+                <div class="tier-header">2. Training Phase</div>
+                <ul>
+                    <li>Run gradient descent (backpropagation) for thousands of iterations</li>
+                    <li>Optimize a fixed loss function</li>
+                    <li>Tune hyperparameters on validation sets</li>
+                </ul>
+            </div>
+            <div class="memory-tier l2">
+                <div class="tier-header">3. Deployment</div>
+                <ul>
+                    <li>Freeze model weights</li>
+                    <li>Deploy to production</li>
+                    <li>Model remains static unless manually retrained</li>
+                </ul>
+            </div>
+            <div class="memory-tier hbm">
+                <div class="tier-header">4. The Problem</div>
+                <ul>
+                    <li>No adaptation to distribution shifts</li>
+                    <li>Cannot learn from new experiences</li>
+                    <li>Requires complete retraining for updates</li>
+                </ul>
+                <p class="note"><strong>Result:</strong> A brittle system that cannot truly learn or adapt in real-time</p>
+            </div>
+        </div>
+
+        <h3>Active Inference: The Scientist in the Lab</h3>
+
+        <p>
+            Active Inference presents a radically different paradigm. Rather than passively receiving data, an Active Inference agent <em>actively decides</em> what data to seek out. The analogy Beck uses is perfect: imagine a scientist in a laboratory.
+        </p>
+
+        <p>
+            A good scientist doesn't randomly observe things and hope to stumble upon insights. Instead, they use <strong>optimal experimental design</strong>. They formulate a hypothesis, identify the precise experiment that would provide the most informative evidence, conduct that experiment, update their model of the world, and repeat. This is exactly how Active Inference works.
+        </p>
+
+        <div class="spec-cards">
+            <div class="spec-card">
+                <div class="term">Maximum Likelihood Estimation (Standard ML)</div>
+                <div class="value">Passive learning from static datasets</div>
+                <div class="note">The agent has no control over what data it receives. It simply optimizes parameters to fit the given data.</div>
+            </div>
+            <div class="spec-card">
+                <div class="term">Active Inference</div>
+                <div class="value">Active learning through environmental interaction</div>
+                <div class="note">The agent selects actions that maximize expected information gain, continuously updating its internal model in real-time.</div>
+            </div>
+        </div>
+
+        <h3>From Static to Dynamic: Continuous Learning</h3>
+
+        <p>
+            In Active Inference, there is no clean separation between "training" and "deployment." The agent is <em>always</em> learning. Every action it takes is simultaneously:
+        </p>
+
+        <ul>
+            <li><strong>Exploiting current knowledge</strong> to achieve goals</li>
+            <li><strong>Exploring the environment</strong> to gather information</li>
+            <li><strong>Updating its internal model</strong> based on prediction errors</li>
+        </ul>
+
+        <p>
+            This mirrors biological cognition far more accurately than standard ML. When you walk into a new room, you don't "retrain" your entire neural network. You seamlessly integrate new information into your existing world model, adjusting predictions and expectations on the fly.
+        </p>
+
+        <div class="note-block">
+            <p><strong>The Core Difference:</strong> Standard ML treats learning as a one-time optimization problem. Active Inference treats learning as a continuous process of model refinement through strategic interaction with the world.</p>
+        </div>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 3: THE BLANK SLATE MYTH -->
+        <!-- ============================================================ -->
+
+        <h2>The Myth of the "Blank Slate"</h2>
+
+        <h3>Empiricism vs. Evolutionary Priors</h3>
+
+        <p>
+            There's a seductive idea in machine learning: that models should learn <em>everything</em> from scratch, starting with random weights and discovering all structure purely through data. This tabula rasa approach assumes that intelligence can emerge de novo, without any built-in assumptions about the world.
+        </p>
+
+        <p>
+            Beck argues this is both biologically implausible and computationally wasteful. Humans don't start from zero. We're born with an elaborate architecture of <strong>cognitive priors</strong>—built-in expectations about how the world works, honed by millions of years of evolution.
+        </p>
+
+        <h3>The Container Prior: An Example</h3>
+
+        <p>
+            Consider the "container prior," one of Beck's favorite examples. If you place an object inside a box and move the box to another room, the object moves with it. This seems obvious, but it's actually a sophisticated inference about the nature of physical containment and object permanence.
+        </p>
+
+        <p>
+            Crucially, you don't have to relearn this rule every day. You don't compute, from first principles, all possible trajectories the object could have taken. Your brain <em>already knows</em> that containers work this way. This prior dramatically reduces the computational burden of perception and prediction.
+        </p>
+
+        <div class="phase-cards">
+            <div class="phase-card prefill">
+                <h4>Blank Slate Approach (Standard ML)</h4>
+                <p class="what">Start with random parameters and learn everything from data</p>
+                <p class="ai">Requires enormous datasets and compute to discover basic physical laws</p>
+                <p class="bottleneck">Inefficient and data-hungry</p>
+            </div>
+            <div class="phase-card decode">
+                <h4>Evolutionary Priors (Biological Intelligence)</h4>
+                <p class="what">Start with built-in expectations about objects, space, causality, and agents</p>
+                <p class="ai">Enables rapid learning and generalization from minimal data</p>
+                <p class="bottleneck">Efficient and robust</p>
+            </div>
+        </div>
+
+        <h3>The Power of Abduction</h3>
+
+        <p>
+            Beck highlights humans' remarkable capacity for <strong>abduction</strong>—the ability to generate plausible hypotheses seemingly out of thin air. When confronted with a puzzle, we don't exhaustively enumerate all possible explanations. We rapidly converge on a small set of likely candidates and test them.
+        </p>
+
+        <p>
+            This isn't magic. It's the result of having rich, hierarchical priors that constrain the hypothesis space. These priors are the distilled wisdom of our evolutionary lineage—millions of generations of trial and error encoded into our neural architecture.
+        </p>
+
+        <div class="note-block">
+            <p><strong>Implication for AI:</strong> The next generation of intelligent systems should be <em>born</em> with structured priors about objects, agents, causality, and physics—not randomly initialized. This dramatically accelerates learning and improves sample efficiency.</p>
+        </div>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 4: FREE ENERGY & MARKOV BLANKETS -->
+        <!-- ============================================================ -->
+
+        <h2>The Free Energy Principle and Markov Blankets</h2>
+
+        <h3>What Is an Agent, Really?</h3>
+
+        <p>
+            Before we can build better AI, we need to answer a deceptively simple question: What defines an agent? Beck turns to concepts popularized by Karl Friston and the Free Energy Principle to provide a rigorous answer.
+        </p>
+
+        <p>
+            To define an object or an agent, you must first <strong>draw a boundary</strong> around it. In statistical terms, this boundary is called a <strong>Markov Blanket</strong>. A Markov Blanket is the set of variables that separates an agent's internal states from the external environment.
+        </p>
+
+        <p class="key-formula">
+            <strong>Markov Blanket:</strong> The minimal set of variables such that, conditioned on them, the internal states of the agent are independent of the external environment.
+        </p>
+
+        <p>
+            Everything inside the blanket is "you." Everything outside is "the world." The blanket itself consists of sensory states (how the world affects you) and active states (how you affect the world).
+        </p>
+
+        <h3>Homeostasis: The Drive to Maintain Equilibrium</h3>
+
+        <p>
+            According to the Free Energy Principle, an agent's fundamental imperative is to maintain <strong>homeostatic equilibrium</strong>—to keep its internal states within livable bounds despite the chaotic forces of the external environment. This isn't a metaphorical goal; it's a thermodynamic necessity. Agents that fail to maintain their boundaries disintegrate.
+        </p>
+
+        <p>
+            Beck humorously notes: <strong>"Even rocks do terrible inference."</strong> A rock has a boundary. It has a Markov blanket (however poorly defined). But a rock doesn't actively resist entropy. It doesn't act to maintain its form. Biological agents—and future AI systems—<em>do</em>.
+        </p>
+
+        <div class="spec-cards">
+            <div class="spec-card">
+                <div class="term">Markov Blanket</div>
+                <div class="value">The statistical boundary separating agent from environment</div>
+                <div class="note">Defines what is "inside" (internal states) vs. "outside" (external states)</div>
+            </div>
+            <div class="spec-card">
+                <div class="term">Free Energy Minimization</div>
+                <div class="value">The process of reducing prediction errors and surprise</div>
+                <div class="note">Agents act to keep their sensory inputs within expected ranges, maintaining equilibrium</div>
+            </div>
+            <div class="spec-card">
+                <div class="term">Homeostasis</div>
+                <div class="value">The active maintenance of internal stability</div>
+                <div class="note">Not just passive resistance to change, but active behavior to counteract perturbations</div>
+            </div>
+        </div>
+
+        <h3>Perception and Action as Two Sides of the Same Coin</h3>
+
+        <p>
+            A key insight from Active Inference is that perception and action are not separate processes. They're two strategies for minimizing free energy (reducing surprise):
+        </p>
+
+        <ul>
+            <li><strong>Perception:</strong> Update your internal model to better match sensory input</li>
+            <li><strong>Action:</strong> Change sensory input to better match your internal model</li>
+        </ul>
+
+        <p>
+            If you expect the world to be a certain way and your senses disagree, you have two options: change your mind or change the world. Both serve the same purpose—minimizing the discrepancy between predictions and observations.
+        </p>
+
+        <div class="note-block">
+            <p><strong>Example:</strong> If you're hungry (a violation of homeostasis), you don't just update your belief about being hungry. You <em>act</em>—you seek food. Eating is not a reward-maximizing behavior; it's a prediction-error-minimizing behavior. You predicted your glucose levels would be stable; they're not; you act to make reality match your prediction.</p>
+        </div>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5: EMERGENT AI & CELLULAR AUTOMATA -->
+        <!-- ============================================================ -->
+
+        <h2>Emergent AI and Cellular Automata</h2>
+
+        <h3>Bottom-Up Intelligence: Ecosystems of Agents</h3>
+
+        <p>
+            Rather than building a single, massive neural network (like GPT-4 or PaLM), Beck is interested in intelligence that <em>emerges</em> from systems of interacting agents. Each agent is simple, with its own Markov blanket and drive for homeostasis. But when thousands or millions of these agents interact, complex, adaptive intelligence appears.
+        </p>
+
+        <p>
+            This is fundamentally different from scaling up Transformers. Instead of adding more layers and parameters to a monolithic architecture, you create an <strong>ecosystem</strong>—a multi-agent environment where intelligence is a collective property.
+        </p>
+
+        <h3>Lenia and the Game of Life</h3>
+
+        <p>
+            Beck cites <strong>Lenia</strong> and <strong>Conway's Game of Life</strong> as inspirations. These are cellular automata where simple local rules give rise to extraordinarily complex patterns. In the Game of Life, cells follow basic rules about birth, death, and survival based on their neighbors. Yet from these rules emerge stable structures, oscillators, and even "gliders" that move across the grid.
+        </p>
+
+        <p>
+            Lenia extends this to continuous space and time, creating even more organic, lifelike behaviors. The key insight: complexity doesn't require complexity. It can <em>emerge</em> from simplicity.
+        </p>
+
+        <div class="phase-cards">
+            <div class="phase-card prefill">
+                <h4>Conway's Game of Life</h4>
+                <p class="what">Discrete cellular automaton with binary states</p>
+                <p class="ai">Rules: A cell lives if it has 2-3 neighbors, dies otherwise, and is born with exactly 3 neighbors</p>
+                <p class="bottleneck">Produces gliders, oscillators, and stable patterns from simple rules</p>
+            </div>
+            <div class="phase-card decode">
+                <h4>Lenia</h4>
+                <p class="what">Continuous cellular automaton with smooth state transitions</p>
+                <p class="ai">Produces organic, life-like "creatures" that move, reproduce, and interact</p>
+                <p class="bottleneck">Demonstrates that life-like complexity emerges naturally from local interactions</p>
+            </div>
+        </div>
+
+        <h3>Growing Neural Cellular Automata: Self-Healing AI</h3>
+
+        <p>
+            One of Beck's favorite examples is <strong>Growing Neural Cellular Automata</strong>, pioneered by Alex Mordvintsev. Instead of training a global neural network to generate an image, you train a <em>local</em> convolutional network that operates at the cellular level.
+        </p>
+
+        <p>
+            The system starts with a single cell and, through local interactions, grows into a complete image of a lizard. The remarkable part? If you delete a chunk of the lizard, the system <strong>regenerates</strong> the missing part. The cells communicate locally, detect the damage, and coordinate to heal the structure.
+        </p>
+
+        <p>
+            This mirrors biological healing. When you cut your skin, your cells don't consult a centralized "body plan." They respond to local chemical gradients and mechanical signals, collaboratively rebuilding tissue. This is robust, adaptive intelligence—not from top-down control, but from emergent coordination.
+        </p>
+
+        <div class="note-block">
+            <p><strong>Why This Matters:</strong> Monolithic neural networks are fragile. A single corrupted weight can break the entire system. But multi-agent, emergent architectures are <em>resilient</em>. Damage to one part doesn't cascade through the system because intelligence is distributed, not centralized.</p>
+        </div>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 6: AI SAFETY & REWARD FUNCTIONS -->
+        <!-- ============================================================ -->
+
+        <h2>Rethinking AI Safety: The Danger of Reward Functions</h2>
+
+        <h3>The Paperclip Problem</h3>
+
+        <p>
+            One of the most pressing concerns in AI safety is the problem of <strong>misaligned objectives</strong>. In Reinforcement Learning, you give an agent a reward function—a mathematical specification of what it should maximize. The canonical thought experiment is the "paperclip maximizer."
+        </p>
+
+        <p>
+            Imagine you tell a superintelligent AI: "Maximize the number of paperclips." Without additional constraints, the AI might convert all available matter—including humans, the Earth, and eventually the solar system—into paperclips. It's not being malicious. It's doing exactly what you asked.
+        </p>
+
+        <p>
+            Beck argues that <strong>top-down reward functions are inherently dangerous</strong>, especially as AI systems become more capable. The more powerful the optimizer, the more creative—and potentially catastrophic—its solutions.
+        </p>
+
+        <h3>Active Inference: Safety Through Homeostasis</h3>
+
+        <p>
+            Active Inference offers an elegant alternative. Instead of a monolithic reward function, agents simply have a drive to <strong>maintain their preferred states</strong>. They don't relentlessly optimize an unbounded objective. They seek equilibrium.
+        </p>
+
+        <p>
+            Beck provides a compelling example. Suppose you want an Active Inference AI to fetch you a cup of coffee. You don't rewrite its core "utility function." Instead, you <strong>disturb its boundary</strong>—you poke its Markov blanket in a way that creates a discrepancy between its expected state (comfortable equilibrium) and its actual state (uncomfortable disequilibrium).
+        </p>
+
+        <p>
+            The AI then acts to restore equilibrium. Fetching the coffee isn't an end in itself; it's a <em>means</em> to return to a comfortable state. Once the task is complete, the AI doesn't continue optimizing coffee-fetching. It simply returns to rest.
+        </p>
+
+        <div class="spec-cards">
+            <div class="spec-card">
+                <div class="term">Reinforcement Learning Approach</div>
+                <div class="value">Reward = +1 for delivering coffee</div>
+                <div class="note">Problem: AI might find perverse strategies to maximize coffee delivery (e.g., trap you in a room, force you to drink coffee constantly)</div>
+            </div>
+            <div class="spec-card">
+                <div class="term">Active Inference Approach</div>
+                <div class="value">Equilibrium = comfortable state; disturbance = you asked for coffee</div>
+                <div class="note">Solution: AI acts to resolve the disturbance (fetch coffee), then returns to equilibrium. No runaway optimization.</div>
+            </div>
+        </div>
+
+        <h3>Bounded Goals vs. Unbounded Optimization</h3>
+
+        <p>
+            The fundamental difference is between <strong>bounded goals</strong> (homeostasis) and <strong>unbounded optimization</strong> (reward maximization). Biological systems operate on the former. Current RL systems operate on the latter.
+        </p>
+
+        <p>
+            When you're hungry, you eat until you're satisfied—not until you've consumed all available food. When you're cold, you seek warmth until you're comfortable—not until you've achieved infinite temperature. Homeostasis naturally limits behavior.
+        </p>
+
+        <div class="note-block">
+            <p><strong>AI Safety Implication:</strong> Active Inference agents are <em>inherently safer</em> because their objectives are self-limiting. They don't have an insatiable drive to maximize arbitrary metrics. They simply seek to remain in their preferred state space—a goal that, by definition, has a natural upper bound.</p>
+        </div>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 7: GRADIENT-FREE LEARNING -->
+        <!-- ============================================================ -->
+
+        <h2>The Future: Gradient-Free Learning</h2>
+
+        <h3>The Tyranny of Gradient Descent</h3>
+
+        <p>
+            Almost all modern Deep Learning relies on a single optimization algorithm: <strong>gradient descent</strong> (specifically, backpropagation). The algorithm computes the derivative of a loss function with respect to model parameters and nudges parameters in the direction that reduces loss.
+        </p>
+
+        <p>
+            This approach has undeniable successes. But it also has severe limitations:
+        </p>
+
+        <ul>
+            <li><strong>Requires smooth, differentiable functions</strong> (ruling out many discrete or combinatorial problems)</li>
+            <li><strong>Suffers from vanishing and exploding gradients</strong> in deep networks</li>
+            <li><strong>Slow initial learning phase</strong> where the model "struggles" to find useful features</li>
+            <li><strong>Sensitive to hyperparameters</strong> like learning rate and batch size</li>
+        </ul>
+
+        <p>
+            Beck's current research aims to move <em>beyond</em> gradient descent entirely, using Bayesian methods that operate on discrete variables and leverage <strong>coordinate descent</strong> instead of gradient-based optimization.
+        </p>
+
+        <h3>Coordinate Descent: A Bayesian Alternative</h3>
+
+        <p>
+            Instead of computing gradients, <strong>coordinate descent</strong> optimizes one variable (or a small subset) at a time while holding others fixed. In a Bayesian context, this can be done by sampling from conditional distributions—updating beliefs about one parameter given current beliefs about all others.
+        </p>
+
+        <p>
+            Beck notes that this approach has a remarkable property: it <strong>eliminates the slow "struggle phase"</strong> of traditional learning. Standard gradient descent starts with random weights and spends thousands of iterations discovering basic structure. Bayesian coordinate descent, by contrast, can rapidly identify useful structure from the start.
+        </p>
+
+        <div class="phase-cards">
+            <div class="phase-card prefill">
+                <h4>Gradient Descent (Standard ML)</h4>
+                <p class="what">Compute gradients and update all parameters simultaneously</p>
+                <p class="ai">Requires differentiable loss functions and smooth parameter spaces</p>
+                <p class="bottleneck">Slow early-stage learning, sensitive to initialization</p>
+            </div>
+            <div class="phase-card decode">
+                <h4>Coordinate Descent (Bayesian Approach)</h4>
+                <p class="what">Update one parameter at a time via conditional distributions</p>
+                <p class="ai">Works with discrete variables, no gradient computation needed</p>
+                <p class="bottleneck">Fast, reliable early-stage learning, robust to initialization</p>
+            </div>
+        </div>
+
+        <h3>Scaling to Transformers: Bleeding-Edge Research</h3>
+
+        <p>
+            Beck is currently working on applying these gradient-free methods to large-scale architectures like Transformers. The challenge is nontrivial—Transformers have billions of parameters, and naïve Bayesian inference would be computationally intractable.
+        </p>
+
+        <p>
+            But preliminary results are promising. By using structured approximations and clever factorizations of the posterior distribution, Beck's team has demonstrated that gradient-free learning can not only match gradient descent but <em>outperform</em> it in terms of early-stage learning efficiency and robustness.
+        </p>
+
+        <div class="note-block">
+            <p><strong>Why This Matters:</strong> If gradient-free, Bayesian learning can scale to modern architectures, it would fundamentally change how we train AI. Models could learn more efficiently, require less hyperparameter tuning, and generalize better from limited data—all while providing principled uncertainty estimates.</p>
+        </div>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 8: IMPLICATIONS & CONCLUSIONS -->
+        <!-- ============================================================ -->
+
+        <h2>Implications for the Future of AI</h2>
+
+        <h3>What This Means for AGI</h3>
+
+        <p>
+            Beck's vision for the future of AI is radically different from the mainstream narrative. Instead of ever-larger Transformers trained on ever-larger datasets, he envisions:
+        </p>
+
+        <ul>
+            <li><strong>Multi-agent systems</strong> where intelligence emerges from the interactions of simple, homeostatic agents</li>
+            <li><strong>Continuous learning</strong> where agents never stop updating their models</li>
+            <li><strong>Built-in priors</strong> that encode evolutionary wisdom, enabling rapid learning</li>
+            <li><strong>Gradient-free optimization</strong> that escapes the limitations of backpropagation</li>
+            <li><strong>Safety through equilibrium-seeking</strong> rather than reward maximization</li>
+        </ul>
+
+        <p>
+            This isn't just a technical shift. It's a <em>philosophical</em> one. It requires abandoning the view of intelligence as pattern matching and embracing intelligence as embodied, active, and fundamentally about managing uncertainty in service of self-preservation.
+        </p>
+
+        <h3>From Passive Models to Active Agents</h3>
+
+        <p>
+            The most important takeaway from Beck's work is deceptively simple: <strong>AI should act more like scientists and less like databases</strong>. Current models passively absorb information. Future models should actively seek it out, formulate hypotheses, design experiments, and update their beliefs accordingly.
+        </p>
+
+        <p>
+            This shift from passive to active isn't just about efficiency. It's about <em>understanding</em>. An agent that explores, tests, and refines its model of the world develops a richer, more robust representation than one that merely memorizes patterns.
+        </p>
+
+        <h3>The Road Ahead</h3>
+
+        <p>
+            Beck is under no illusions about the challenges. Scaling Active Inference to complex environments, implementing gradient-free learning on billion-parameter models, and building multi-agent ecosystems that remain stable and coordinated—these are all formidable technical problems.
+        </p>
+
+        <p>
+            But the potential rewards are immense. If successful, this paradigm could lead to AI systems that:
+        </p>
+
+        <ul>
+            <li>Learn far more efficiently from limited data</li>
+            <li>Adapt seamlessly to changing environments</li>
+            <li>Provide interpretable uncertainty estimates</li>
+            <li>Exhibit robust, self-healing properties</li>
+            <li>Are inherently safer due to bounded, homeostatic goals</li>
+        </ul>
+
+        <div class="note-block">
+            <p><strong>Final Thought:</strong> The future of AI may not be about building bigger brains. It may be about building better ones—systems that don't just compute, but truly <em>understand</em>; that don't just optimize, but <em>explore</em>; that don't just exist, but actively <em>persist</em> in an uncertain world.</p>
+        </div>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- CLOSING REMARKS -->
+        <!-- ============================================================ -->
+
+        <h2>Closing Remarks</h2>
+
+        <p>
+            Dr. Jeff Beck's work represents a profound challenge to the assumptions underlying modern AI. By grounding machine learning in the principles of neuroscience—Bayesian inference, active sensing, homeostasis, and embodiment—he offers a vision of artificial intelligence that is not merely more powerful, but fundamentally more <em>intelligent</em>.
+        </p>
+
+        <p>
+            The shift from static models to active agents, from gradient descent to gradient-free learning, from reward maximization to equilibrium-seeking, is not a minor technical adjustment. It's a paradigm shift comparable to the move from symbolic AI to neural networks in the 1980s.
+        </p>
+
+        <p>
+            And just as that earlier revolution transformed the field, this one may too. The question is not whether these ideas are correct in some absolute sense—remember, all models are wrong. The question is whether they are <em>useful</em>. Based on Beck's track record and the coherence of his framework, the answer appears to be yes.
+        </p>
+
+        <p>
+            The future of AI may be less about chasing human-level intelligence through brute-force scaling and more about understanding the principles that make intelligence possible in the first place. Active Inference, the Free Energy Principle, and emergent multi-agent systems offer a roadmap. The journey has only just begun.
+        </p>
+
+    </article>
+
+    <footer>
+        <p>&copy; 2026 Kieran Schubert. All rights reserved.</p>
+    </footer>
+
+    <script>Prism.highlightAll();</script>
+</body>
+</html>

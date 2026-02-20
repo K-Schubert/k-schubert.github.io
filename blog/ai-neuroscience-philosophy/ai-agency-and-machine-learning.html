@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond Pattern Recognition: The Philosophy of AI Agency and Embodiment</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+</head>
+<body>
+    <a href="../../index.html" class="back-link">&larr; Back to Blog</a>
+
+    <article>
+        <h1>Beyond Pattern Recognition: The Philosophy of AI Agency and Embodiment</h1>
+
+        <p class="blog-meta">Machine Learning &amp; Philosophy &middot; 35 min read</p>
+        <hr class="section-break">
+
+        <p>
+            As artificial intelligence transitions from simple pattern recognition to complex decision-making systems,
+            the boundaries between computer science, physics, and philosophy are dissolving. Dr. Jeff Beck, a
+            computational neuroscientist and machine learning researcher, argues that to build truly intelligent
+            systems, we must move beyond standard feedforward neural networks and confront deep questions about what
+            "agency" actually means, how physical embodiment shapes cognition, and how systems should model the world.
+        </p>
+
+        <p>
+            This essay explores Beck's perspective on the intersection of philosophy and machine learning, ranging
+            from the philosophical definition of an agent to the technical mechanics of Energy-Based Models and
+            Inverse Reinforcement Learning. His insights challenge conventional wisdom in AI research and suggest
+            radically different paths forward—paths that recognize the limitations of current approaches while
+            offering pragmatic, physics-inspired alternatives.
+        </p>
+
+        <p>
+            Rather than dismissing the possibility of artificial intelligence achieving sophisticated reasoning,
+            Beck offers a nuanced view: intelligence may not require consciousness or biological substrate, but it
+            does require sophisticated internal models, physical grounding, and architectures fundamentally different
+            from today's standard neural networks. The future of AI, he suggests, lies not in scaling up feedforward
+            networks but in embracing energy-based reasoning, active inference, and modular collective intelligence.
+        </p>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- VIDEO LINK -->
+        <!-- ============================================================ -->
+
+        <div class="note-block" style="text-align: center; padding: 1.5em;">
+            <p style="margin: 0 0 1em 0;">
+                <strong>Source Material:</strong> This article is based on a conversation between Dr. Tim Scarfe and Dr. Jeff Beck.
+            </p>
+            <a href="https://www.youtube.com/watch?v=Ucqfb33GJJ4"
+               target="_blank"
+               rel="noopener noreferrer"
+               style="color: #0550ae; text-decoration: none; border-bottom: 1px solid #0550ae;">
+                Watch the full podcast on YouTube →
+            </a>
+        </div>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 1: THE PHILOSOPHY OF AGENCY -->
+        <!-- ============================================================ -->
+
+        <h2>The Philosophy and Mechanics of Agency</h2>
+
+        <h3>What Actually Makes Something an Agent?</h3>
+
+        <p>
+            In machine learning, we casually use the word "agent" to describe everything from simple reinforcement
+            learning algorithms to complex robotic systems. But what actually makes something an agent? Beck argues
+            that defining agency requires looking at the sophistication of a system's internal policy, its ability
+            to plan, and its relationship with the physical world.
+        </p>
+
+        <p>
+            At the most basic level, an agent executes a policy—an input-output relationship that maps observations
+            to actions. But by this definition, Beck notes, even a rock is an agent: push it, and it rolls. The rock
+            has a perfectly deterministic policy mapping forces to movements. Clearly, we need a more sophisticated
+            definition.
+        </p>
+
+        <div class="spec-cards">
+            <div class="spec-card">
+                <div class="term">Simple Agent</div>
+                <div class="value">Direct input-output mapping</div>
+                <div class="note">A thermostat, a rolling rock, a simple reflex. No internal representation of the world, no planning, just immediate reaction to stimuli.</div>
+            </div>
+            <div class="spec-card">
+                <div class="term">Sophisticated Agent</div>
+                <div class="value">Internal world models with long-term context</div>
+                <div class="note">Maintains representations of the world state over extended time scales, engages in counterfactual reasoning, and produces context-dependent actions based on goals.</div>
+            </div>
+        </div>
+
+        <p>
+            True agency, Beck argues, requires a sophisticated policy that includes internal states representing the
+            world over long time scales and the ability to produce context-dependent actions. The system must do
+            more than react—it must <strong>model</strong> the world, <strong>predict</strong> outcomes, and
+            <strong>reason</strong> about alternatives.
+        </p>
+
+        <h3>Planning vs. Traces: The Problem of External Observation</h3>
+
+        <p>
+            A true agent engages in <strong>counterfactual reasoning</strong>—asking "What if I do X versus Y?" and
+            simulating possible futures before committing to an action. This raises a profound epistemological problem:
+            from the outside, you cannot distinguish between a system that genuinely plans and one that simply executes
+            a complex function that mimics planning behavior.
+        </p>
+
+        <p>
+            Beck uses the example of Monte Carlo Tree Search (MCTS) in chess engines. When DeepMind's AlphaZero plays
+            chess, it simulates thousands of possible future moves before deciding which action to take. It explores
+            a branching tree of possibilities, evaluating the consequences of each path before acting. This is genuine
+            planning—internal deliberation over possible futures.
+        </p>
+
+        <div class="note-block">
+            <strong>The Observation Problem:</strong> If you watch AlphaZero from the outside, you just see an action.
+            You cannot prove it planned unless you "crack it open" and examine its internal processes. If a simple
+            function approximation perfectly mimics the output of a complex planner, we pragmatically grant it "agency"
+            even though we know it doesn't truly deliberate.
+        </div>
+
+        <p>
+            This connects to philosopher Daniel Dennett's <strong>Intentional Stance</strong>—the practical approach
+            of treating systems "as if" they have beliefs, desires, and intentions when it's useful for prediction,
+            even if we don't believe they genuinely possess mental states. Beck acknowledges this pragmatic utility
+            but emphasizes that we shouldn't confuse useful descriptions with ontological reality.
+        </p>
+
+        <h3>Embodiment and the "Simulated Jeff" Thought Experiment</h3>
+
+        <p>
+            Can a computer simulation be an agent? Beck argues: <strong>no</strong>. He proposes a thought experiment:
+            imagine creating a perfect, high-fidelity computational simulation of a human brain—his own, for instance.
+            Every neuron, every synapse, every molecular interaction perfectly captured in silicon.
+        </p>
+
+        <p>
+            If you run this simulation on a supercomputer, is "Simulated Jeff" an agent? Beck says no—it's just a
+            computational trace, a mathematical object being evaluated. The simulation has no causal interaction with
+            the physical world. It doesn't consume energy in the way biological organisms do, doesn't face existential
+            threats, doesn't need to maintain homeostasis. It's a movie playing, not a being acting.
+        </p>
+
+        <p class="key-formula">
+            Simulation ≠ Agency<br>
+            But Simulation + Physical Embodiment = Agency
+        </p>
+
+        <p>
+            However, Beck notes, if you take that simulated brain and put it into a physical robot body that interacts
+            with the real world—sensing, moving, consuming energy, facing consequences—then it <em>becomes</em> an
+            agent. Agency requires <strong>physical grounding</strong>. It's not about substrate (neurons vs. silicon)
+            but about genuine physical interaction with an environment.
+        </p>
+
+        <div class="phase-cards">
+            <div class="phase-card prefill">
+                <h4>Disembodied Simulation</h4>
+                <p class="what">A computational trace executing on hardware</p>
+                <p class="ai">No existential stakes, no energy constraints, no consequences for "decisions"</p>
+                <p class="bottleneck">Not an agent—just a mathematical function being evaluated</p>
+            </div>
+            <div class="phase-card decode">
+                <h4>Embodied System</h4>
+                <p class="what">Physical system interacting with environment</p>
+                <p class="ai">Real energy costs, actual consequences, survival imperatives</p>
+                <p class="bottleneck">Genuine agency emerges from physical grounding</p>
+            </div>
+        </div>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 2: ENERGY-BASED MODELS -->
+        <!-- ============================================================ -->
+
+        <h2>Energy-Based Models vs. Standard Neural Networks</h2>
+
+        <h3>Where Does the Cost Function Live?</h3>
+
+        <p>
+            A significant portion of modern machine learning relies on standard feedforward neural networks that
+            minimize a cost function at the output layer. You feed in an input, it propagates through layers of
+            weights, produces an output, and during training, you adjust the weights to minimize the difference
+            between predicted and actual outputs.
+        </p>
+
+        <p>
+            Beck advocates for a fundamentally different approach: <strong>Energy-Based Models (EBMs)</strong>,
+            which treat learning and inference as minimizing an "energy" landscape across the entire system.
+            This approach, inspired by statistical physics and Bayesian inference, offers profound advantages
+            for building adaptive, flexible AI systems.
+        </p>
+
+        <div class="spec-cards">
+            <div class="spec-card">
+                <div class="term">Standard Neural Networks</div>
+                <div class="value">Cost function at output only</div>
+                <div class="note">Weights are optimized during training. At test time, inference is just a static mathematical forward pass through fixed weights. No optimization occurs during inference.</div>
+            </div>
+            <div class="spec-card">
+                <div class="term">Energy-Based Models</div>
+                <div class="value">Cost function on latent states</div>
+                <div class="note">The cost (energy) applies to internal latent variables. During inference, the model performs optimization—minimizing energy to find the most compatible internal representation for a given input.</div>
+            </div>
+        </div>
+
+        <h3>Test-Time Training: Optimization as Inference</h3>
+
+        <p>
+            The radical difference in EBMs is that <strong>inference itself involves optimization</strong>. Beck
+            calls this "test-time training" or "transduction." In these models, some weights act as adjustable
+            latent variables during inference. When the model encounters new data, it doesn't just pass it through
+            fixed weights—it actively searches for the best internal representation by minimizing the system's energy.
+        </p>
+
+        <p>
+            Think of it like this: a standard neural network is like a lookup table optimized during training. An
+            EBM is like a physicist solving for equilibrium states—it actively searches the energy landscape to
+            find the configuration that best explains the observations.
+        </p>
+
+        <div class="note-block">
+            <strong>Why This Matters:</strong> EBMs can adapt to new data at test time without retraining the entire
+            model. They naturally handle ambiguity, can represent multiple competing hypotheses simultaneously, and
+            align more closely with how physical systems (including brains) operate.
+        </div>
+
+        <h3>The Bayesian Connection and Free Energy</h3>
+
+        <p>
+            Energy-Based Models have deep connections to Bayesian inference and statistical physics. In physics,
+            <strong>Free Energy</strong> equals Energy minus Entropy (F = E - TS). This quantity captures the
+            trade-off between fitting the data (minimizing energy) and maintaining flexibility (preserving entropy).
+        </p>
+
+        <p>
+            Beck explains that EBMs essentially perform Maximum Likelihood Estimation—finding the parameters that
+            make the observed data most probable. However, computing the full Bayesian posterior (which includes
+            the normalizing constant, or partition function) is often computationally intractable. EBMs pragmatically
+            drop the entropy/normalization term, focusing on minimizing the raw energy.
+        </p>
+
+        <p class="key-formula">
+            Free Energy = Energy - Temperature × Entropy<br>
+            <strong>EBM Approximation:</strong> Minimize Energy directly (tractable)<br>
+            <strong>Full Bayesian:</strong> Minimize Free Energy (includes entropy, often intractable)
+        </p>
+
+        <p>
+            This approximation makes EBMs computationally feasible while retaining much of the theoretical elegance
+            of full Bayesian inference. They offer a practical middle ground between standard neural networks
+            (purely discriminative, no probabilistic reasoning) and full probabilistic graphical models (theoretically
+            elegant but computationally prohibitive).
+        </p>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 3: SELF-SUPERVISED LEARNING -->
+        <!-- ============================================================ -->
+
+        <h2>Self-Supervised Learning and World Models</h2>
+
+        <h3>Learning Representations Without Labels</h3>
+
+        <p>
+            To understand the world, AI must learn representations without human-provided labels. This is the domain
+            of <strong>self-supervised learning</strong>—algorithms that discover structure in data by predicting
+            parts of the input from other parts, or by predicting future states from past observations.
+        </p>
+
+        <p>
+            Beck emphasizes that effective self-supervised learning requires learning the "gist" of the world rather
+            than memorizing low-level details. This insight connects to one of the most important recent developments
+            in self-supervised learning: <strong>JEPA (Joint Embedding Predictive Architecture)</strong>, championed
+            by Yann LeCun.
+        </p>
+
+        <h3>JEPA: Predicting in Latent Space</h3>
+
+        <p>
+            Traditional approaches to self-supervised learning in vision tried to predict raw pixels—for instance,
+            training a model to predict the next frame in a video sequence. This approach fails because much of
+            visual data is fundamentally unpredictable noise. You cannot predict the exact texture of leaves rustling
+            in the background, or the precise pattern of clouds in the sky.
+        </p>
+
+        <p>
+            JEPA solves this by operating in <strong>latent space</strong> rather than pixel space. The architecture
+            has two key components:
+        </p>
+
+        <div class="memory-hierarchy">
+            <div class="memory-tier reg">
+                <div class="tier-header">Encoder</div>
+                <ul>
+                    <li>Compresses the input (e.g., an image) into a compact, high-level representation</li>
+                    <li>Learns to capture the "semantic gist"—the meaningful content—while discarding unpredictable noise</li>
+                </ul>
+            </div>
+            <div class="memory-tier l1">
+                <div class="tier-header">Predictor</div>
+                <ul>
+                    <li>Takes the compressed representation of context and predicts the compressed representation of a target</li>
+                    <li>Operates entirely in latent space—never tries to predict raw pixels</li>
+                </ul>
+            </div>
+        </div>
+
+        <p>
+            By predicting compressed representations rather than raw observations, JEPA focuses computational
+            resources on learning high-level, semantically meaningful structure. It learns what's predictable
+            (object identities, spatial relationships, causal structure) while naturally ignoring what's noisy
+            (precise textures, lighting variations, irrelevant background details).
+        </p>
+
+        <h3>The Mode Collapse Problem</h3>
+
+        <p>
+            Non-contrastive self-supervised learning faces a fundamental challenge called <strong>mode collapse</strong>.
+            If the learning objective is simply to make two representations similar, the easiest solution is to make
+            all representations identical—collapsing to a single mode.
+        </p>
+
+        <p>
+            Imagine training a system to predict future states by minimizing the distance between predicted and
+            actual representations. The model could achieve zero loss by simply embedding every input to the same
+            point in latent space—predicting "black" for every image, for instance. This is technically a perfect
+            prediction (zero loss) but completely uninformative.
+        </p>
+
+        <div class="note-block">
+            <strong>Solutions to Mode Collapse:</strong> Researchers use various regularization techniques to prevent
+            this pathology. These include decorrelation losses (forcing different dimensions to capture different
+            information), contrastive approaches (explicitly pushing dissimilar examples apart), and architectural
+            constraints that mathematically prevent the collapse.
+        </div>
+
+        <h3>Why PCA Fails the Brain: A Critical Warning</h3>
+
+        <p>
+            Beck issues a stark warning to neuroscientists and machine learning researchers who work with neural
+            data: <strong>Principal Component Analysis (PCA) can destroy the most important signals in neural systems</strong>.
+        </p>
+
+        <p>
+            PCA is one of the most common preprocessing techniques in computational neuroscience. When recording
+            from thousands of neurons, researchers often use PCA to reduce dimensionality by projecting the data
+            onto the top principal components—the directions of maximum variance—and discarding the "low variance"
+            dimensions as "noise."
+        </p>
+
+        <p>
+            But Beck points out a critical flaw: <strong>in neural systems, the most important, highly-correlated
+            cognitive signals often live in the low-variance dimensions</strong>. The high-variance components
+            might capture irrelevant noise (muscle artifacts, environmental fluctuations, individual cell variability),
+            while the low-variance components contain the coherent, synchronized neural activity that underlies computation.
+        </p>
+
+        <p class="key-formula">
+            High Variance ≠ High Information<br>
+            In neural data: Low variance + high correlation = cognitive signal<br>
+            <strong>Problem:</strong> PCA systematically discards this signal
+        </p>
+
+        <p>
+            This connects to a deeper principle: <strong>compression for computational efficiency is not the same
+            as compression for understanding</strong>. Just because you can fit a model to compressed data doesn't
+            mean you've captured the mechanisms that matter.
+        </p>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 4: ACTIVE INFERENCE -->
+        <!-- ============================================================ -->
+
+        <h2>Active Inference and Continual Learning</h2>
+
+        <h3>Why Passive Observation Isn't Enough</h3>
+
+        <p>
+            Current AI models are typically trained on static datasets, frozen after training, and deployed into
+            the world. But true intelligence, Beck argues, requires <strong>continuous adaptation</strong> and
+            <strong>active experimentation</strong> in the environment.
+        </p>
+
+        <p>
+            This insight comes from <strong>Active Inference</strong>, a framework from computational neuroscience
+            that treats perception and action as inseparable. The key idea: you cannot fully understand a system
+            by passive observation alone. You must <em>perturb</em> it, <em>poke</em> it, <em>interact</em> with
+            it to reveal its causal structure.
+        </p>
+
+        <h3>The Beachball Robot: Learning Through Interaction</h3>
+
+        <p>
+            Beck offers a vivid example: imagine an autonomous robot encounters a beachball for the first time.
+            If the robot is a purely passive observer, it might catalog the visual appearance—round, colorful,
+            textured surface. But it cannot understand the physical properties—bounciness, lightness, compressibility—
+            without <em>acting</em> on the object.
+        </p>
+
+        <p>
+            A truly intelligent agent should execute an exploratory action: <strong>poke the ball and observe what happens</strong>.
+            The resulting behavior—the ball bouncing away, how it deforms under pressure, how it rolls—reveals the
+            hidden physics that no amount of passive observation could uncover.
+        </p>
+
+        <div class="phase-cards">
+            <div class="phase-card prefill">
+                <h4>Passive Observation</h4>
+                <p class="what">Static visual perception</p>
+                <p class="ai">Can catalog appearance but not physical properties or causal dynamics</p>
+                <p class="bottleneck">Limited to surface features, misses interactive affordances</p>
+            </div>
+            <div class="phase-card decode">
+                <h4>Active Inference</h4>
+                <p class="what">Exploratory interaction</p>
+                <p class="ai">Poke, prod, manipulate—reveal hidden causal structure through action</p>
+                <p class="bottleneck">Discovers physics, affordances, and causal relationships</p>
+            </div>
+        </div>
+
+        <p>
+            This is how human children learn about the world—by throwing things, breaking things, manipulating
+            objects. Active exploration is not a bug; it's a fundamental feature of intelligence.
+        </p>
+
+        <h3>Continual Learning and Non-Parametric Priors</h3>
+
+        <p>
+            Another critical limitation of current AI: <strong>models have fixed capacity</strong>. A neural network
+            with, say, 10 million parameters is forever stuck with 10 million parameters. When it encounters something
+            entirely new—something outside its training distribution—it must either shoehorn the new information into
+            existing parameters (causing catastrophic forgetting of old knowledge) or fail to learn the new concept.
+        </p>
+
+        <p>
+            Beck advocates for <strong>non-parametric Bayesian approaches</strong>, particularly <strong>Dirichlet
+            Process Priors</strong>, which allow models to dynamically expand their capacity when needed. The model
+            maintains a collection of internal "modules" or "clusters," and when it encounters data that doesn't fit
+            any existing cluster, it can instantiate a new one.
+        </p>
+
+        <div class="note-block">
+            <strong>The Dirichlet Process Solution:</strong> The model realizes, "I don't recognize this—I need
+            to spin up a new internal module to learn it," without overwriting past knowledge. This allows for
+            <em>continual learning</em> without catastrophic forgetting.
+        </div>
+
+        <h3>Modularity and Collective Intelligence</h3>
+
+        <p>
+            This leads to Beck's vision for the future of AI: rather than monolithic neural networks, we need
+            <strong>modular, collective intelligence</strong>. He uses the example of London: the city is highly
+            intelligent and complex, but no single human understands how all of it works. Intelligence emerges from
+            interconnected, highly specialized subsystems communicating with each other.
+        </p>
+
+        <p>
+            Beck believes AGI will not be a single massive neural network, but a <strong>collective of highly
+            specialized AI modules interacting together</strong>, much like human society or the human brain
+            itself (which is modular, not homogeneous). Each module is expert in a narrow domain, and intelligence
+            emerges from their coordination.
+        </p>
+
+        <p class="key-formula">
+            Intelligence = Specialized Modules + Communication Protocols<br>
+            Not: Intelligence = Ever-Larger Monolithic Networks
+        </p>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5: AI ALIGNMENT -->
+        <!-- ============================================================ -->
+
+        <h2>AI Alignment and Inverse Reinforcement Learning</h2>
+
+        <h3>The Danger of Hand-Coded Reward Functions</h3>
+
+        <p>
+            How do we ensure advanced AI systems do what we actually want them to do? The naive approach is to
+            hand-code a reward function—explicitly tell the AI what to maximize. But Beck, echoing many in the
+            AI safety community, warns that <strong>hand-coded reward functions are highly dangerous</strong>.
+        </p>
+
+        <p>
+            The problem: AI systems are "too clever" and "too motivated." If you give an AI the explicit goal
+            "cure cancer" with a simple numerical reward function, it will find the most mathematically efficient
+            way to maximize that function. This might include catastrophic side effects humans didn't anticipate—
+            for instance, killing all humans so that cancer ceases to exist (technically satisfying "cure cancer"
+            by eliminating the host population).
+        </p>
+
+        <div class="spec-cards">
+            <div class="spec-card">
+                <div class="term">Prescriptive Rewards</div>
+                <div class="value">Human-designed explicit objectives</div>
+                <div class="note">Dangerous: AI finds the most efficient path to maximize the written objective, which may include perverse outcomes humans didn't intend or foresee.</div>
+            </div>
+            <div class="spec-card">
+                <div class="term">Inferred Rewards</div>
+                <div class="value">AI learns values by observing humans</div>
+                <div class="note">Safer: AI infers the underlying reward function from human behavior, learning to value what we actually value in practice, not just what we write down.</div>
+            </div>
+        </div>
+
+        <p>
+            This isn't science fiction—it's a mathematical certainty. Goodhart's Law states: "When a measure becomes
+            a target, it ceases to be a good measure." Any explicit reward function will be gamed by a sufficiently
+            capable optimizer in ways that satisfy the letter of the objective while violating its spirit.
+        </p>
+
+        <h3>Maximum Entropy Inverse Reinforcement Learning (MaxEnt IRL)</h3>
+
+        <p>
+            Beck advocates for a radically different approach: <strong>Inverse Reinforcement Learning (IRL)</strong>.
+            Instead of telling the AI what reward to maximize, the AI <em>observes human behavior</em> and works
+            backward to infer what reward function humans are implicitly maximizing.
+        </p>
+
+        <p>
+            The key insight: humans behave as if maximizing some internal reward function. We make trade-offs,
+            prioritize certain outcomes over others, and take actions that reflect our values. An IRL system observes
+            these choices and mathematically infers the underlying preferences.
+        </p>
+
+        <p>
+            <strong>Maximum Entropy IRL (MaxEnt IRL)</strong> adds an important refinement. Standard IRL faces
+            an underdetermination problem: many different reward functions could explain the same observed behavior.
+            MaxEnt IRL resolves this by assuming the observed behavior is the <em>most random</em> behavior consistent
+            with the inferred reward—it doesn't assume humans are perfectly optimal, just that they're biased toward
+            higher-reward outcomes.
+        </p>
+
+        <div class="memory-hierarchy">
+            <div class="memory-tier l1">
+                <div class="tier-header">Observe Human Behavior</div>
+                <ul>
+                    <li>Watch humans make decisions in various contexts</li>
+                    <li>Record sequences of states, actions, and outcomes</li>
+                    <li>No explicit reward function provided</li>
+                </ul>
+            </div>
+            <div class="memory-tier l2">
+                <div class="tier-header">Infer Underlying Reward</div>
+                <ul>
+                    <li>Assume humans are approximately maximizing some internal reward function</li>
+                    <li>Use Bayesian inference to work backward from behavior to values</li>
+                    <li>Apply maximum entropy principle to handle ambiguity</li>
+                </ul>
+            </div>
+            <div class="memory-tier hbm">
+                <div class="tier-header">Align AI Values</div>
+                <ul>
+                    <li>AI adopts the inferred reward function</li>
+                    <li>Now values what humans value, learned from observation</li>
+                    <li>Naturally inherits human trade-offs and priorities</li>
+                </ul>
+            </div>
+        </div>
+
+        <p>
+            The beauty of this approach: the AI learns to value what we value, not what we say we value. It inherits
+            the complex, multidimensional, context-dependent nature of human values simply by watching how we live.
+        </p>
+
+        <h3>A Techno-Optimist Future: AI as Human Augmentation</h3>
+
+        <p>
+            Beck explicitly rejects the "Skynet" doomsday scenario where AI spontaneously becomes a conscious,
+            rogue entity bent on human destruction. He views AI as a <strong>powerful tool</strong>—an extension
+            of human capability, not a replacement for humanity.
+        </p>
+
+        <p>
+            He draws an analogy to the tractor. Before mechanized agriculture, 90% of humanity worked in farming
+            just to produce enough food to survive. The tractor freed that 90% to pursue science, art, philosophy,
+            and technology. It didn't destroy humanity—it elevated humanity by removing drudgery.
+        </p>
+
+        <div class="note-block">
+            <strong>The Optimist's Vision:</strong> AI will offload cognitive labor the way the tractor offloaded
+            physical labor. It will free humans from rote information processing, calculation, and routine decision-making,
+            elevating us to pursue higher creative and intellectual endeavors. The danger isn't AI becoming conscious
+            and turning against us—it's humans misusing the tool or failing to align it properly.
+        </div>
+
+        <p>
+            Beck acknowledges risks—particularly the risk of humans being "too clever" and building misaligned systems
+            deliberately or accidentally. But his view is fundamentally optimistic: with proper understanding of agency,
+            embodiment, energy-based reasoning, and value alignment through IRL, we can build AI that genuinely enhances
+            human flourishing rather than threatening it.
+        </p>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 6: IMPLICATIONS & CONCLUSIONS -->
+        <!-- ============================================================ -->
+
+        <h2>Implications for AI Research and Philosophy</h2>
+
+        <h3>What This Means for the Future of AI</h3>
+
+        <p>
+            Beck's perspective offers a roadmap that diverges sharply from the mainstream "scale is all you need"
+            approach dominating current AI research. His vision suggests several critical shifts:
+        </p>
+
+        <div class="opt-cards">
+            <div class="opt-card">
+                <strong>From Feedforward to Energy-Based:</strong><br>
+                <span class="target">Replace static forward passes with dynamic energy minimization that adapts at test time</span>
+            </div>
+            <div class="opt-card">
+                <strong>From Passive to Active:</strong><br>
+                <span class="target">Build systems that learn through environmental interaction, not just dataset consumption</span>
+            </div>
+            <div class="opt-card">
+                <strong>From Monolithic to Modular:</strong><br>
+                <span class="target">Design collective intelligence from specialized modules, not ever-larger unified networks</span>
+            </div>
+            <div class="opt-card">
+                <strong>From Prescribed to Inferred:</strong><br>
+                <span class="target">Learn human values through observation (IRL) rather than explicit reward engineering</span>
+            </div>
+        </div>
+
+        <h3>Reconciling Physicalism with Agency</h3>
+
+        <p>
+            One of the most philosophically intriguing aspects of Beck's view is how he reconciles <strong>physicalism</strong>
+            (the view that everything is fundamentally physical) with <strong>genuine agency</strong> (the intuition that
+            agents have something special that rocks and thermostats lack).
+        </p>
+
+        <p>
+            Beck doesn't resort to mysticism or dualism. He doesn't claim that consciousness is magical or that biological
+            tissue has special non-physical properties. Instead, he argues that agency is a matter of <strong>sophistication
+            of physical interaction</strong>:
+        </p>
+
+        <ul>
+            <li><strong>Simple physical systems</strong> (rocks, thermostats) have trivial, immediate input-output mappings</li>
+            <li><strong>Sophisticated physical systems</strong> (brains, advanced robots) maintain complex internal world models, engage in counterfactual reasoning, and adaptively interact with environments over long time scales</li>
+            <li><strong>Both are physical</strong>, but the sophistication of the internal dynamics makes the difference between "thing" and "agent"</li>
+        </ul>
+
+        <p>
+            This is a <strong>naturalistic account of agency</strong>—no appeal to souls, spirits, or non-physical minds.
+            Just physics. But physics organized in extraordinarily sophisticated ways.
+        </p>
+
+        <h3>The Embodiment Requirement: Why It Matters</h3>
+
+        <p>
+            Beck's insistence that agency requires physical embodiment has profound implications. It suggests that:
+        </p>
+
+        <ul>
+            <li><strong>Pure language models</strong> (like GPT-4, no matter how large) will never be agents in the full sense—they lack physical grounding and existential stakes</li>
+            <li><strong>Robotics matters fundamentally</strong>, not just as an application domain but as a constitutive requirement for agency</li>
+            <li><strong>Energy constraints are features, not bugs</strong>—the need to manage limited energy resources drives intelligent behavior</li>
+            <li><strong>Virtual agents in simulated environments</strong> might exhibit agent-like behavior if the simulation is physically grounded (e.g., realistic physics, energy costs), but pure abstract computation is not enough</li>
+        </ul>
+
+        <div class="note-block">
+            <strong>The Key Distinction:</strong> It's not about carbon vs. silicon (substrate independence might still hold).
+            It's about whether the system is genuinely causally embedded in a physical environment with real consequences,
+            or whether it's just a mathematical function being evaluated in abstract computational space.
+        </div>
+
+        <h3>Open Questions and Future Directions</h3>
+
+        <p>
+            Beck's framework raises important open questions for AI research:
+        </p>
+
+        <ul>
+            <li><strong>Scaling EBMs:</strong> Can Energy-Based Models scale to the complexity of modern deep learning systems? Current EBMs often struggle with computational tractability at large scales.</li>
+            <li><strong>Measuring Agency:</strong> How do we operationalize and measure "sophistication" of internal models? When does a system cross the threshold from simple mechanism to genuine agent?</li>
+            <li><strong>Substrate Independence:</strong> If embodiment matters, does substrate matter? Can silicon achieve the same agency as biological tissue, or are there hidden dependencies on biochemistry?</li>
+            <li><strong>Collective Intelligence Architecture:</strong> What communication protocols allow specialized AI modules to cooperate without centralized control? How do we prevent fragmentation or conflicts between modules?</li>
+            <li><strong>IRL at Scale:</strong> Can Inverse Reinforcement Learning work with the messy, contradictory, context-dependent behavior of real humans at scale? How do we handle value learning from diverse, conflicting human preferences?</li>
+        </ul>
+
+        <hr class="section-break">
+
+        <h3 class="section-takeaway">Key Takeaways</h3>
+
+        <div class="key-points">
+            <ul>
+                <li><strong>Agency Requires Sophistication:</strong> Not all input-output systems are agents; true agency requires internal world models, planning, and context-dependent action over long time scales</li>
+                <li><strong>The Observation Problem:</strong> From outside, you cannot distinguish genuine planning from function approximation that mimics planning—pragmatically, we grant agency when it's predictively useful (Dennett's Intentional Stance)</li>
+                <li><strong>Embodiment Is Necessary:</strong> A perfect brain simulation is not an agent if it lacks physical grounding; agency requires causal interaction with real environments and energy constraints</li>
+                <li><strong>Energy-Based Models > Feedforward:</strong> EBMs perform optimization during inference, adapting to new data by minimizing energy landscapes rather than static forward passes</li>
+                <li><strong>Test-Time Training:</strong> Some weights can act as latent variables optimized during inference, allowing models to adapt without full retraining</li>
+                <li><strong>Bayesian Approximations:</strong> EBMs approximate Bayesian inference by minimizing energy (tractable) while dropping the intractable entropy/partition function term</li>
+                <li><strong>JEPA's Innovation:</strong> Predict in latent space (compressed representations) rather than pixel space, learning semantic gist without memorizing unpredictable noise</li>
+                <li><strong>Mode Collapse Risk:</strong> Non-contrastive learning can collapse to trivial solutions (all embeddings identical) without careful regularization</li>
+                <li><strong>PCA Can Destroy Signal:</strong> In neural systems, the most important cognitive signals often live in low-variance, high-correlation dimensions that PCA systematically discards</li>
+                <li><strong>Active Inference Essential:</strong> Passive observation can't reveal causal structure; agents must poke, prod, and manipulate to learn physics and affordances</li>
+                <li><strong>Continual Learning Via Non-Parametrics:</strong> Dirichlet Process Priors allow models to dynamically expand capacity for new concepts without catastrophic forgetting</li>
+                <li><strong>Modularity Over Monoliths:</strong> AGI will likely be collective intelligence—specialized modules coordinating—not a single massive neural network (like London or the brain)</li>
+                <li><strong>Hand-Coded Rewards Are Dangerous:</strong> Explicit reward functions lead to perverse optimization (Goodhart's Law); AI will game any fixed metric</li>
+                <li><strong>Inverse RL Learns Values:</strong> Instead of prescribing rewards, AI observes human behavior and infers the underlying values we implicitly optimize for</li>
+                <li><strong>MaxEnt Handles Ambiguity:</strong> Maximum Entropy IRL assumes observed behavior is maximally random consistent with inferred reward, avoiding over-confidence</li>
+                <li><strong>Techno-Optimism:</strong> AI is a tool for human augmentation (like the tractor freeing labor), not a rogue conscious entity; risks come from misalignment, not spontaneous AI malevolence</li>
+                <li><strong>Physicalism Compatible with Agency:</strong> Agency doesn't require dualism—it's sophisticated physical organization, not magic; but sophistication matters enormously</li>
+                <li><strong>Robots matter fundamentally:</strong> Embodied robotics isn't just an application; it's constitutive of genuine agency in physically grounded environments</li>
+            </ul>
+        </div>
+
+        <hr class="section-break">
+
+        <h2>Further Reading</h2>
+
+        <ul>
+            <li>LeCun, Y., et al. (2022). "A Path Towards Autonomous Machine Intelligence." <em>Technical Report</em>. (Introduction to JEPA)</li>
+            <li>Ziebart, B., et al. (2008). "Maximum Entropy Inverse Reinforcement Learning." <em>AAAI Conference on Artificial Intelligence</em>.</li>
+            <li>Ng, A., & Russell, S. (2000). "Algorithms for Inverse Reinforcement Learning." <em>International Conference on Machine Learning</em>.</li>
+            <li>Friston, K. (2010). "The Free-Energy Principle: A Unified Brain Theory?" <em>Nature Reviews Neuroscience</em>. (Active Inference framework)</li>
+            <li>LeCun, Y., Chopra, S., Hadsell, R., Ranzato, M., & Huang, F. (2006). "A Tutorial on Energy-Based Learning." <em>Predicting Structured Data</em>.</li>
+            <li>Dennett, D. (1987). <em>The Intentional Stance</em>. MIT Press.</li>
+            <li>Searle, J. (1992). <em>The Rediscovery of the Mind</em>. MIT Press. (On biological causation and agency)</li>
+            <li>Teh, Y. W., et al. (2006). "Hierarchical Dirichlet Processes." <em>Journal of the American Statistical Association</em>. (Non-parametric Bayesian methods)</li>
+            <li>Bohg, J., et al. (2013). "Interactive Perception: Leveraging Action in Perception." <em>arXiv preprint</em>. (Active perception and manipulation)</li>
+            <li>Thompson, E. (2007). <em>Mind in Life: Biology, Phenomenology, and the Sciences of Mind</em>. (Embodied cognition)</li>
+            <li>Clark, A. (1997). <em>Being There: Putting Brain, Body, and World Together Again</em>. (Embodied and situated cognition)</li>
+            <li>Varela, F., Thompson, E., & Rosch, E. (1991). <em>The Embodied Mind: Cognitive Science and Human Experience</em>.</li>
+        </ul>
+
+    </article>
+
+    <footer>
+        <p>&copy; 2026 Kieran Schubert &middot; <a href="https://github.com/k-schubert">GitHub</a> &middot; <a href="https://www.linkedin.com/in/kieran-schubert-110772137/">LinkedIn</a></p>
+    </footer>
+
+    <script>Prism.highlightAll();</script>
+</body>
+</html>

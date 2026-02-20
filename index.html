@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LLM Systems Blog</title>
+    <title>LLM & AI Systems Blog</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -11,15 +11,16 @@
 
 <article>
 
-<h1>LLM Systems & Inference Engineering</h1>
+<h1>AI Systems & LLM Inference Engineering</h1>
 
-<p class="blog-meta">A practical deep-dive into modern LLM infrastructure, performance, and optimization.</p>
+<p class="blog-meta">A practical deep-dive into modern LLM infrastructure, performance, optimization and philosophy.</p>
 
 <hr class="section-break">
 
 <p>
 This blog covers the full stack of large language model systems — from transformer fundamentals to
-multi-GPU distributed inference, memory optimization, and real-world deployment techniques.
+multi-GPU distributed inference, memory optimization, real-world deployment techniques, and the
+quest to achieve truly intelligent systems. Whether you're a researcher, engineer, or just curious about how LLMs work under the hood, this blog aims to provide a comprehensive, practical guide to the rapidly evolving landscape of AI systems.
 </p>
 
 <p>
@@ -35,28 +36,22 @@ Start from the fundamentals or jump directly into advanced system optimization t
 
 <div class="spec-cards">
 
-<a class="blog-link spec-card" href="blog/1-transformer-architecture.html">
+<a class="blog-link spec-card coming-soon" href="blog/foundations/1-transformer-architecture.html">
 <div class="term">Architecture</div>
 <div class="value">Transformer Architecture</div>
 <div class="note">Core building blocks of modern LLMs</div>
 </a>
 
-<a class="blog-link spec-card" href="blog/4-attention-mechanism.html">
+<a class="blog-link spec-card coming-soon" href="blog/foundations/4-attention-mechanism.html">
 <div class="term">Mechanics</div>
 <div class="value">Attention Mechanism</div>
 <div class="note">How attention works internally</div>
 </a>
 
-<a class="blog-link spec-card" href="blog/3-llm-inference-maths.html">
+<a class="blog-link spec-card coming-soon" href="blog/foundations/3-llm-inference-maths.html">
 <div class="term">Math</div>
 <div class="value">Inference Mathematics</div>
 <div class="note">FLOPs, memory, latency modelling</div>
-</a>
-
-<a class="blog-link spec-card" href="blog/2-gpu-llm-inference-basics.html">
-<div class="term">Hardware</div>
-<div class="value">GPU & LLM Inference Basics</div>
-<div class="note">Memory hierarchy, bandwidth limits</div>
 </a>
 
 </div>
@@ -70,31 +65,37 @@ Start from the fundamentals or jump directly into advanced system optimization t
 
 <div class="spec-cards">
 
-<a class="blog-link spec-card" href="blog/kv-cache.html">
+<a class="blog-link spec-card" href="blog/inference/gpu-llm-inference-basics.html">
+<div class="term">Hardware</div>
+<div class="value">GPU & LLM Inference Basics</div>
+<div class="note">Memory hierarchy, bandwidth limits</div>
+</a>
+
+<a class="blog-link spec-card coming-soon" href="blog/kv-cache.html">
 <div class="term">Memory</div>
 <div class="value">KV Cache</div>
 <div class="note">Speeding up autoregressive decoding</div>
 </a>
 
-<a class="blog-link spec-card" href="blog/batching.html">
+<a class="blog-link spec-card coming-soon" href="blog/batching.html">
 <div class="term">Throughput</div>
 <div class="value">Batching Strategies</div>
 <div class="note">Maximizing GPU utilization</div>
 </a>
 
-<a class="blog-link spec-card" href="blog/9-speculative-decoding.html">
+<a class="blog-link spec-card coming-soon" href="blog/9-speculative-decoding.html">
 <div class="term">Latency</div>
 <div class="value">Speculative Decoding</div>
 <div class="note">Reducing token generation time</div>
 </a>
 
-<a class="blog-link spec-card" href="blog/8-quantization.html">
+<a class="blog-link spec-card coming-soon" href="blog/8-quantization.html">
 <div class="term">Compression</div>
 <div class="value">Quantization</div>
 <div class="note">Reducing memory and bandwidth</div>
 </a>
 
-<a class="blog-link spec-card" href="blog/cpu-offloading.html">
+<a class="blog-link spec-card coming-soon" href="blog/cpu-offloading.html">
 <div class="term">Hybrid</div>
 <div class="value">CPU Offloading</div>
 <div class="note">Managing limited VRAM</div>
@@ -111,19 +112,19 @@ Start from the fundamentals or jump directly into advanced system optimization t
 
 <div class="spec-cards">
 
-<a class="blog-link spec-card" href="blog/5-kernel-optim.html">
+<a class="blog-link spec-card coming-soon" href="blog/5-kernel-optim.html">
 <div class="term">Performance</div>
 <div class="value">Kernel Optimization</div>
 <div class="note">Low-level GPU tuning</div>
 </a>
 
-<a class="blog-link spec-card" href="blog/7-triton.html">
+<a class="blog-link spec-card coming-soon" href="blog/7-triton.html">
 <div class="term">Programming</div>
 <div class="value">Triton Kernels</div>
 <div class="note">Writing custom GPU kernels</div>
 </a>
 
-<a class="blog-link spec-card" href="blog/6-flash-attention.html">
+<a class="blog-link spec-card coming-soon" href="blog/6-flash-attention.html">
 <div class="term">Memory</div>
 <div class="value">Flash Attention</div>
 <div class="note">IO-aware attention algorithm</div>
@@ -140,28 +141,87 @@ Start from the fundamentals or jump directly into advanced system optimization t
 
 <div class="spec-cards">
 
-<a class="blog-link spec-card" href="blog/10-moe.html">
+<a class="blog-link spec-card coming-soon" href="blog/10-moe.html">
 <div class="term">Scaling</div>
 <div class="value">Mixture-of-Experts</div>
 <div class="note">Sparse expert routing</div>
 </a>
 
-<a class="blog-link spec-card" href="blog/11-model-pruning.html">
+<a class="blog-link spec-card coming-soon" href="blog/11-model-pruning.html">
 <div class="term">Compression</div>
 <div class="value">Model Pruning</div>
 <div class="note">Reducing parameter count</div>
 </a>
 
-<a class="blog-link spec-card" href="blog/12-model-distillation.html">
+<a class="blog-link spec-card coming-soon" href="blog/12-model-distillation.html">
 <div class="term">Training</div>
 <div class="value">Distillation</div>
 <div class="note">Teacher-student learning</div>
 </a>
 
-<a class="blog-link spec-card" href="blog/multimodal-models.html">
+<a class="blog-link spec-card coming-soon" href="blog/multimodal-models.html">
 <div class="term">Frontier</div>
 <div class="value">Multimodal Models</div>
 <div class="note">Text + vision + audio systems</div>
+</a>
+
+</div>
+
+
+<!-- ============================= -->
+<!-- TRAINING & FINE-TUNING -->
+<!-- ============================= -->
+
+<h2>Training & Fine-tuning</h2>
+
+<div class="spec-cards">
+
+<a class="blog-link spec-card coming-soon" href="blog/training/backpropagation.html">
+<div class="term">Fundamentals</div>
+<div class="value">Backpropagation</div>
+<div class="note">Core training algorithm</div>
+</a>
+
+<a class="blog-link spec-card coming-soon" href="blog/training/continual-learning.html">
+<div class="term">Adaptation</div>
+<div class="value">Continual Learning</div>
+<div class="note">Learning without forgetting</div>
+</a>
+
+<a class="blog-link spec-card coming-soon" href="blog/training/rlhf.html">
+<div class="term">Alignment</div>
+<div class="value">RLHF</div>
+<div class="note">Reinforcement learning from human feedback</div>
+</a>
+
+<a class="blog-link spec-card coming-soon" href="blog/training/ppo.html">
+<div class="term">RL Algorithm</div>
+<div class="value">PPO</div>
+<div class="note">Proximal policy optimization</div>
+</a>
+
+<a class="blog-link spec-card coming-soon" href="blog/training/dpo.html">
+<div class="term">RL Algorithm</div>
+<div class="value">DPO</div>
+<div class="note">Direct preference optimization</div>
+</a>
+
+<a class="blog-link spec-card coming-soon" href="blog/training/grpo-cispo.html">
+<div class="term">RL Algorithm</div>
+<div class="value">GRPO/CISPO</div>
+<div class="note">Advanced policy optimization</div>
+</a>
+
+<a class="blog-link spec-card coming-soon" href="blog/training/rlvr.html">
+<div class="term">RL Technique</div>
+<div class="value">RLVR</div>
+<div class="note">Reinforcement learning with verifiers</div>
+</a>
+
+<a class="blog-link spec-card coming-soon" href="blog/training/rubric-based-rl.html">
+<div class="term">RL Technique</div>
+<div class="value">Rubric-based RL</div>
+<div class="note">Structured reward modeling</div>
 </a>
 
 </div>
@@ -175,25 +235,31 @@ Start from the fundamentals or jump directly into advanced system optimization t
 
 <div class="spec-cards">
 
-<a class="blog-link spec-card" href="blog/13-vllm.html">
+<a class="blog-link spec-card coming-soon" href="blog/13-vllm.html">
 <div class="term">Serving</div>
 <div class="value">vLLM</div>
 <div class="note">Paged attention & serving engine</div>
 </a>
 
-<a class="blog-link spec-card" href="blog/14-multi-node-inference.html">
+<a class="blog-link spec-card coming-soon" href="blog/13-sglang.html">
+<div class="term">Serving</div>
+<div class="value">SGLang</div>
+<div class="note">Radix-based attention & serving engine</div>
+</a>
+
+<a class="blog-link spec-card coming-soon" href="blog/14-multi-node-inference.html">
 <div class="term">Scaling</div>
 <div class="value">Multi-Node Inference</div>
 <div class="note">Distributed GPU inference</div>
 </a>
 
-<a class="blog-link spec-card" href="blog/15-llm-inference-profiling.html">
+<a class="blog-link spec-card coming-soon" href="blog/15-llm-inference-profiling.html">
 <div class="term">Debugging</div>
 <div class="value">Inference Profiling</div>
 <div class="note">Finding bottlenecks</div>
 </a>
 
-<a class="blog-link spec-card" href="blog/gpu-comparaison.html">
+<a class="blog-link spec-card coming-soon" href="blog/gpu-comparaison.html">
 <div class="term">Hardware</div>
 <div class="value">GPU Comparison</div>
 <div class="note">Choosing the right GPU</div>
@@ -210,10 +276,67 @@ Start from the fundamentals or jump directly into advanced system optimization t
 
 <div class="spec-cards">
 
-<a class="blog-link spec-card" href="blog/sota-retrieval.html">
+<a class="blog-link spec-card coming-soon" href="blog/rag/sota-retrieval.html">
 <div class="term">Search</div>
-<div class="value">State-of-the-Art Retrieval</div>
-<div class="note">Modern RAG pipelines</div>
+<div class="value">2-Stage Retrieval</div>
+<div class="note">Bi-encoder & cross-encoder</div>
+</a>
+
+<a class="blog-link spec-card coming-soon" href="blog/rag/late-interaction.html">
+<div class="term">Search</div>
+<div class="value">Late Interaction</div>
+<div class="note">Efficient relevance scoring</div>
+</a>
+
+<a class="blog-link spec-card coming-soon" href="blog/rag/late-chunking.html">
+<div class="term">Preprocessing</div>
+<div class="value">Late Chunking</div>
+<div class="note">Efficient document chunking</div>
+</a>
+
+<a class="blog-link spec-card coming-soon" href="blog/rag/apple-clara.html">
+<div class="term">Search & Generation</div>
+<div class="value">Apple CLaRa</div>
+<div class="note">Memory compression & generation in latent space</div>
+</a>
+
+<a class="blog-link spec-card coming-soon" href="blog/rag/refrag.html">
+<div class="term">Search & Generation</div>
+<div class="value">REFRAG</div>
+<div class="note"></div>
+</a>
+
+</div>
+
+<!-- ============================= -->
+<!-- PHILOSOPHY -->
+<!-- ============================= -->
+
+<h2>Philosophy of AI Systems</h2>
+<div class="spec-cards">
+
+<a class="blog-link spec-card" href="blog/ai-neuroscience-philosophy/computational-metaphor-of-the-brain.html">
+<div class="term">Metaphor</div>
+<div class="value">Computational Metaphor of the Brain</div>
+<div class="note">Exploring AI through the lens of brain computation</div>
+</a>
+
+<a class="blog-link spec-card" href="blog/ai-neuroscience-philosophy/ai-agency-and-machine-learning.html">
+<div class="term">Agency</div>
+<div class="value">Beyond Pattern Recognition: AI Agency and Embodiment</div>
+<div class="note">Philosophy of agency, energy-based models, and value alignment</div>
+</a>
+
+<a class="blog-link spec-card" href="blog/ai-neuroscience-philosophy/active-inference-future-of-ai.html">
+<div class="term">Active Inference</div>
+<div class="value">The Future of AI</div>
+<div class="note">Exploring AI through the lens of active inference</div>
+</a>
+
+<a class="blog-link spec-card" href="blog/ai-neuroscience-philosophy/brain-ignores-reality.html">
+<div class="term">Perception</div>
+<div class="value">The Brain Ignores Reality</div>
+<div class="note">How the brain constructs its own reality</div>
 </a>
 
 </div>

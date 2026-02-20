@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Your Brain Ignores 90% of Reality (and What It Means for AI)</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+</head>
+<body>
+    <a href="../../index.html" class="back-link">&larr; Back to Blog</a>
+
+    <article>
+        <h1>Why Your Brain Ignores 90% of Reality (and What It Means for AI)</h1>
+
+        <p class="blog-meta">Neuroscience & AI Philosophy &middot; 32 min read</p>
+        <hr class="section-break">
+
+        <p>
+            Picture yourself driving on a foggy morning. The world outside your windshield is a blur of grey,
+            shapes emerging and dissolving at the edge of perception. Without thinking about it, your foot eases
+            off the accelerator. Your grip tightens on the wheel. You lean forward slightly, straining to hear—
+            as if sound could somehow compensate for what your eyes can no longer tell you.
+        </p>
+
+        <p>
+            What just happened? Your brain performed a remarkable computational feat: it detected that visual
+            information had become unreliable, automatically down-weighted it, and redistributed cognitive
+            resources to other sensory modalities. No conscious deliberation required. No manual recalculation
+            of sensory reliability coefficients. Just pure, efficient Bayesian inference happening in real-time,
+            optimizing your model of reality to keep you safe.
+        </p>
+
+        <p>
+            This is not just a neat party trick of neuroscience. It's a window into one of the most profound
+            insights about intelligence itself—biological or artificial. Your brain is not a passive recorder
+            of reality. It is an aggressive reality-compressing prediction machine, constantly deciding what
+            to ignore, what to amplify, and what models to deploy. According to neuroscientist Dr. Jeff Beck,
+            <strong>90% of what your brain does is deciding what NOT to process</strong>.
+        </p>
+
+        <p>
+            Understanding this principle—that intelligence is fundamentally about efficient compression and
+            selective ignorance—reveals deep implications for artificial intelligence. It helps us see why
+            current AI systems, despite their impressive capabilities, remain fundamentally different from
+            biological intelligence. And it suggests a radically different path forward: one that embraces
+            structured priors, causal models, and the instrumentalist view that our representations of reality
+            are tools for action, not mirrors of truth.
+        </p>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- VIDEO LINK -->
+        <!-- ============================================================ -->
+
+        <div class="note-block" style="text-align: center; padding: 1.5em;">
+            <p style="margin: 0 0 1em 0;">
+                <strong>Source Material:</strong> This article is based on a conversation between Dr. Tim Scarfe and Dr. Jeff Beck.
+            </p>
+            <a href="https://www.youtube.com/watch?v=9suqiofCiwM"
+               target="_blank"
+               rel="noopener noreferrer"
+               style="color: #0550ae; text-decoration: none; border-bottom: 1px solid #0550ae;">
+                Watch the full podcast on YouTube →
+            </a>
+        </div>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 1: INSTRUMENTALISM -->
+        <!-- ============================================================ -->
+
+        <h2>The Instrumentalist View: Models Are Tools, Not Truth</h2>
+
+        <h3>What Is Instrumentalism?</h3>
+
+        <p>
+            At the heart of Dr. Jeff Beck's philosophy lies <strong>instrumentalism</strong>—the idea that
+            scientific models, mental representations, and even our concepts of causality are not objective
+            truths about the universe. They are <em>instruments</em>: highly efficient computational tools
+            we use to predict the future and act effectively in the world.
+        </p>
+
+        <p>
+            This might sound like philosophical hairsplitting, but it has profound practical implications.
+            Consider the concept of "momentum" in physics. We don't directly observe momentum. We only
+            observe position and how it changes over time (velocity). So why did physicists invent momentum?
+        </p>
+
+        <div class="spec-cards">
+            <div class="spec-card">
+                <div class="term">The Problem</div>
+                <div class="value">To predict future position, you need the entire history of forces</div>
+            </div>
+            <div class="spec-card">
+                <div class="term">The Solution</div>
+                <div class="value">Invent "momentum" as a state variable</div>
+            </div>
+            <div class="spec-card">
+                <div class="term">The Benefit</div>
+                <div class="value">Now the system is Markovian—you only need current state to predict next state</div>
+            </div>
+        </div>
+
+        <p>
+            Momentum was invented to make physics <em>computationally tractable</em>. If you know position
+            and momentum at time <em>t</em>, you can perfectly predict state at time <em>t+1</em> without
+            needing to store and process the entire causal history. Momentum is an abstract variable we
+            created to make the math easier and the models simpler.
+        </p>
+
+        <div class="note-block">
+            <strong>Key Insight:</strong> The question isn't "Does momentum really exist?" The question is
+            "Is momentum a useful variable for predicting the behavior of systems we care about?"
+            Instrumentalism says the utility of a model is what matters, not its ontological status.
+        </div>
+
+        <h3>Instrumentalism Applied to the Brain</h3>
+
+        <p>
+            Now apply this thinking to neuroscience and AI. When we say "the brain represents the world" or
+            "neural networks learn features," we're not necessarily describing what's objectively happening
+            at the level of fundamental physics. We're describing a <em>useful abstraction</em>—a higher-level
+            causal model that lets us predict and understand behavior without needing to track every synaptic
+            firing or molecular interaction.
+        </p>
+
+        <p>
+            Beck argues that the brain itself operates instrumentally. It does not strive to build a perfect,
+            complete representation of reality. Instead, it builds the <em>most efficient models possible</em>
+            for achieving its goals (survival, reproduction, reward maximization). These models are selected
+            by evolution and refined by experience, but they are always pragmatic approximations, not perfect
+            mirrors.
+        </p>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 2: THE BAYESIAN BRAIN -->
+        <!-- ============================================================ -->
+
+        <h2>The Bayesian Brain: Inference as the Core of Intelligence</h2>
+
+        <h3>Bayesian Inference as the Scientific Method</h3>
+
+        <p>
+            Beck posits that <strong>Bayesian inference is not just a statistical tool—it is the normative
+            approach to empirical inquiry</strong>. In other words, it encapsulates the scientific method
+            itself: formulate hypotheses, gather data, update beliefs, repeat.
+        </p>
+
+        <p>
+            The brain is fundamentally Bayesian. It constantly generates models of the world, tests them
+            against incoming sensory data, and updates its beliefs accordingly. The key is that the brain
+            doesn't wait for perfect information. It acts under uncertainty, weighing evidence and priors
+            to make optimal decisions given limited time and computational resources.
+        </p>
+
+        <h3>The Chinese Restaurant Process: Hypothesis Testing in Action</h3>
+
+        <p>
+            To illustrate how the brain performs Bayesian clustering and hypothesis generation, Beck cites
+            the <strong>Chinese Restaurant Process</strong>, a concept from machine learning researcher
+            Zoubin Ghahramani. Imagine you're entering a restaurant with multiple tables. Each table represents
+            a hypothesis or category:
+        </p>
+
+        <div class="memory-hierarchy">
+            <div class="memory-tier" style="border-color: #2da44e; background: #f5fff4;">
+                <div class="tier-header">Step 1: Receive New Data</div>
+                <p>A new customer (data point) arrives at the restaurant.</p>
+            </div>
+            <div class="memory-tier" style="border-color: #1565c0; background: #f4f7ff;">
+                <div class="tier-header">Step 2: Evaluate Similarity</div>
+                <p>Compare the new customer to existing tables (hypotheses). How similar are they?</p>
+            </div>
+            <div class="memory-tier" style="border-color: #ef6c00; background: #fffbf4;">
+                <div class="tier-header">Step 3: Join or Create</div>
+                <p>If similar enough, join an existing table. If not, create a new table (new hypothesis).</p>
+            </div>
+            <div class="memory-tier" style="border-color: #7b1fa2; background: #faf4ff;">
+                <div class="tier-header">Step 4: Update Beliefs</div>
+                <p>The probability of each hypothesis is updated based on the new evidence.</p>
+            </div>
+        </div>
+
+        <p>
+            This algorithmic summary captures the essence of scientific inquiry. The brain is constantly
+            receiving sensory data, evaluating it against existing internal models, and deciding whether
+            to assimilate it into current beliefs or generate a new hypothesis entirely. This is explicit,
+            structured hypothesis testing—not just pattern matching.
+        </p>
+
+        <h3>Optimal Cue Combination: The Fog Example Revisited</h3>
+
+        <p>
+            Let's return to that foggy morning drive. How does your brain know to down-weight vision and
+            rely more on auditory cues? The answer is <strong>optimal cue combination</strong>—a Bayesian
+            mechanism that dynamically weights different sensory streams based on their trial-by-trial
+            reliability.
+        </p>
+
+        <div class="phase-cards">
+            <div class="phase-card prefill">
+                <h4>Clear Day Driving</h4>
+                <p class="what">Visual information is highly reliable. Auditory information is less critical.</p>
+                <p class="ai"><strong>Bayesian Weighting:</strong> Vision receives high weight (~80%),
+                sound low weight (~20%).</p>
+            </div>
+            <div class="phase-card decode">
+                <h4>Foggy Day Driving</h4>
+                <p class="what">Visual information becomes noisy and uncertain. Brain detects this degradation.</p>
+                <p class="ai"><strong>Bayesian Weighting:</strong> Vision automatically down-weighted (~30%),
+                auditory and other cues up-weighted (~70%).</p>
+            </div>
+        </div>
+
+        <p>
+            Notice that this is <em>not</em> a conscious, deliberate recalculation. You don't think,
+            "Hmm, visibility is at 40%, so I should increase my reliance on auditory processing by 15%."
+            Your brain does this automatically, in real-time, because it has learned (through evolution and
+            experience) a generative model of how sensory reliability varies with environmental conditions.
+        </p>
+
+        <div class="note-block">
+            <strong>Why This Matters for AI:</strong> Current AI systems don't naturally do this. A vision
+            model trained in clear conditions will fail catastrophically in fog unless explicitly fine-tuned.
+            It doesn't have an internal uncertainty model that lets it gracefully degrade and reallocate
+            computational resources. Biological brains come with this built-in.
+        </div>
+
+        <h3>The Power of Ignoring: 90% of Intelligence Is Filtering</h3>
+
+        <p>
+            Here's the bombshell: <strong>90% of what your brain does is deciding what to ignore</strong>.
+            Every second, your sensory organs are bombarded with millions of bits of information—photons
+            hitting your retina, pressure waves vibrating your eardrums, proprioceptive signals from every
+            muscle and joint. If your brain tried to process all of this at the highest resolution, you
+            would be instantly paralyzed by information overload.
+        </p>
+
+        <p>
+            Instead, the brain maintains a minimal "low-resolution awareness" of most of the world, keeping
+            just enough statistical sensitivity to detect when something important changes. When a sudden
+            movement appears in your peripheral vision, or a loud noise breaks the ambient soundscape, the
+            brain rapidly reallocates attention and processing power to that location.
+        </p>
+
+        <p class="key-formula">
+            <strong>Intelligence = Signal Extraction ÷ (Total Information × Energy Cost)</strong><br>
+            Survival depends on maximizing predictive signal while minimizing computational and energetic waste.
+        </p>
+
+        <p>
+            This principle of aggressive filtering and selective attention is one of the most underappreciated
+            aspects of biological intelligence. It's what allows a squirrel to process its environment in
+            real-time with a brain consuming less than 1 watt of power. It's also what current AI systems,
+            which process everything at full resolution all the time, fundamentally lack.
+        </p>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 3: METAPHORS OF MIND -->
+        <!-- ============================================================ -->
+
+        <h2>Metaphors of Mind: Is the Brain a Computer?</h2>
+
+        <h3>The Evolution of Technological Metaphors</h3>
+
+        <p>
+            Throughout history, humans have used their most advanced technology as a metaphor for understanding
+            the mind and the universe. Beck traces this intellectual pattern:
+        </p>
+
+        <div class="memory-hierarchy">
+            <div class="memory-tier" style="border-color: #8e24aa; background: #faf4ff;">
+                <div class="tier-header">Ancient Mechanics: Levers and Pulleys</div>
+                <p>Early natural philosophers viewed the body (and by extension, the mind) as a collection of
+                mechanical parts—levers for bones, pulleys for muscles.</p>
+            </div>
+            <div class="memory-tier" style="border-color: #ef6c00; background: #fffbf4;">
+                <div class="tier-header">Middle Ages: Hydraulics and Humors</div>
+                <p>With the advent of water power and fluid dynamics, the brain was explained through the
+                flow of "humors"—fluids that balanced personality and cognition.</p>
+            </div>
+            <div class="memory-tier" style="border-color: #1565c0; background: #f4f7ff;">
+                <div class="tier-header">Industrial Revolution: Clockwork Mechanisms</div>
+                <p>As precision engineering advanced, the mind was likened to clockwork—predictable, deterministic,
+                mechanical computation.</p>
+            </div>
+            <div class="memory-tier" style="border-color: #2da44e; background: #f5fff4;">
+                <div class="tier-header">Modern Era: Digital Computers</div>
+                <p>Today, we call the brain a "prediction machine," an "inference engine," or simply a "biological
+                computer."</p>
+            </div>
+        </div>
+
+        <p>
+            Each metaphor was useful in its time, enabling new insights and experimental paradigms. But each
+            was also incomplete—a map, not the territory. Beck warns that we're doing the same thing now with
+            computation. Just because neural networks and Bayesian inference are powerful mathematical tools
+            for modeling brain function doesn't mean the brain <em>is</em> a computer in any essential sense.
+        </p>
+
+        <div class="note-block">
+            <strong>The Map-Territory Fallacy:</strong> We must be cautious not to reify our current
+            computational metaphors. The fact that artificial neural networks can approximate certain brain
+            functions doesn't tell us that the brain is "really" implementing gradient descent or backpropagation.
+            These are descriptive tools, not ontological claims.
+        </div>
+
+        <h3>Auto-Regressive LLMs: Useful, But Not Human-Like</h3>
+
+        <p>
+            Beck applies this thinking directly to modern AI. Large Language Models (LLMs) like GPT are
+            <strong>auto-regressive</strong>: they predict the next token based on all previous tokens.
+            This is an extraordinarily effective strategy for compressing the statistical structure of
+            human language. But Beck argues it's primarily a <em>computationally convenient</em> approach—
+            not necessarily how human language generation actually works.
+        </p>
+
+        <p>
+            Humans don't construct sentences purely token-by-token, left-to-right. We have abstract
+            syntactic plans, semantic goals, and pragmatic intentions that guide multi-word utterances.
+            We revise, backtrack, and restructure sentences mid-stream. Our language generation is a
+            hierarchical, goal-directed process embedded in embodied action and social context.
+        </p>
+
+        <p>
+            LLMs achieve impressive results by brute-forcing massive amounts of text data. But this doesn't
+            mean they've captured the causal, generative process underlying human language. They've found
+            a <em>different</em> solution to the same prediction problem—one that works beautifully within
+            their computational constraints, but diverges fundamentally from biological cognition.
+        </p>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 4: CAUSALITY AS COMPUTATIONAL TOOL -->
+        <!-- ============================================================ -->
+
+        <h2>Causality: Objective Reality or Computational Convenience?</h2>
+
+        <h3>Do Causal Laws Really Exist?</h3>
+
+        <p>
+            One of Beck's most provocative claims is that <strong>causality might not be a fundamental
+            feature of the universe</strong>. Instead, causal models are a "computationally convenient
+            class of models" that intelligent agents (biological or artificial) use because they enable
+            efficient prediction and intervention.
+        </p>
+
+        <p>
+            This doesn't mean causes don't "exist" in any sense. It means that when we draw a circle around
+            a set of variables and say "X causes Y," we are performing a pragmatic act of abstraction. We're
+            ignoring microscopic physics, bundling together regularities, and creating a macroscopic summary
+            that maps to our capabilities as embodied agents.
+        </p>
+
+        <h3>Micro vs. Macro Causation: Why We Need High-Level Models</h3>
+
+        <p>
+            Beck uses the concept of "intention" as an example. When I say "my intention to pick up the
+            coffee cup caused my hand to move," I'm invoking a macroscopic causal model. At the quantum
+            level, there is no discrete "intention" object floating around. There are trillions of molecular
+            interactions, ion channels opening and closing, action potentials cascading through neurons.
+        </p>
+
+        <p>
+            So why talk about "intentions" at all? Because <strong>we live in a macroscopic world</strong>.
+            We don't have "microscopic tweezers" to manipulate reality at the particle level. The interventions
+            we can actually perform—reaching, grasping, speaking—operate at the scale of meters and seconds,
+            not nanometers and nanoseconds.
+        </p>
+
+        <div class="spec-cards">
+            <div class="spec-card">
+                <div class="term">Microscopic Perspective</div>
+                <div class="value">Quantum fields, synaptic vesicles, ion gradients</div>
+                <div class="note">Causally complete but computationally intractable for agents like us</div>
+            </div>
+            <div class="spec-card">
+                <div class="term">Macroscopic Perspective</div>
+                <div class="value">Intentions, beliefs, goals, actions</div>
+                <div class="note">Computationally efficient and directly actionable</div>
+            </div>
+        </div>
+
+        <p>
+            Macroscopic causal models are therefore not "false simplifications." They are <em>affordance-aligned
+            abstractions</em>—models that match the grain size of our perceptual and motor systems. They let
+            us plan, predict, and intervene effectively in the world we actually inhabit.
+        </p>
+
+        <h3>Intervention: Separating Correlation from Causation</h3>
+
+        <p>
+            How do we discover causal relationships? Beck emphasizes that you must perform an <strong>intervention</strong>.
+            Observational data alone can never distinguish causation from mere correlation. You need to actively
+            manipulate the system and observe what happens.
+        </p>
+
+        <p>
+            He gives a historical example from medicine: For years, doctors believed that <strong>alcoholism
+            caused lung cancer</strong>. The correlation was clear—heavy drinkers had elevated lung cancer
+            rates. But when researchers performed interventions (studying populations that drank but didn't
+            smoke, and vice versa), they discovered the hidden causal variable: <strong>smoking</strong>.
+        </p>
+
+        <div class="phase-cards">
+            <div class="phase-card prefill">
+                <h4>Observational Data</h4>
+                <p class="what">Correlation detected: Alcoholism ↔ Lung Cancer</p>
+                <p class="ai"><strong>Conclusion:</strong> Appears causal, but could be confounded.</p>
+            </div>
+            <div class="phase-card decode">
+                <h4>Intervention Data</h4>
+                <p class="what">Manipulate drinking independently of smoking; test each pathway separately.</p>
+                <p class="ai"><strong>Conclusion:</strong> Smoking is causal. Alcohol was just correlated
+                (alcoholics smoked more).</p>
+            </div>
+        </div>
+
+        <p>
+            This principle is foundational not just for science, but for building intelligent systems. If an
+            AI model learns only from observational data, it will pick up correlations that dissolve under
+            intervention. To build robust, generalizable AI, we need systems that can reason about causality—
+            not just fit statistical patterns.
+        </p>
+
+        <div class="note-block">
+            <strong>Implications for AI Safety:</strong> Many AI failures come from confusing correlation
+            with causation. A model trained on biased data will learn spurious associations. Without causal
+            reasoning, it cannot distinguish true mechanisms from artifacts of the training distribution.
+        </div>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5: BIOLOGICAL BRAINS VS. ARTIFICIAL NETWORKS -->
+        <!-- ============================================================ -->
+
+        <h2>Why Biological Brains Learn Differently (and Better)</h2>
+
+        <h3>The Tabula Rasa Problem in AI</h3>
+
+        <p>
+            One of the fundamental differences between biological and artificial intelligence is how learning
+            begins. Modern AI systems—especially large language models and vision networks—are trained largely
+            from scratch. They start with random weights and learn everything through exposure to massive datasets.
+        </p>
+
+        <p>
+            This is the <strong>tabula rasa</strong> (blank slate) approach. While it has proven remarkably
+            effective, it is also wildly inefficient compared to biological learning. A human child can learn
+            that objects fall when dropped after seeing just a few examples. They don't need to observe
+            millions of objects falling in every conceivable configuration.
+        </p>
+
+        <h3>Evolution as the Ultimate Pre-Trainer</h3>
+
+        <p>
+            Beck argues that biological brains are <em>not</em> blank slates. They come pre-loaded with
+            highly structured priors—inductive biases forged by millions of years of evolution. These
+            priors encode regularities of the physical world, social interactions, and survival-relevant
+            patterns.
+        </p>
+
+        <p>
+            Think of evolution as the ultimate pre-training algorithm. Across countless generations, random
+            mutations that improved prediction and action were selected. The resulting brain architecture
+            embeds deep assumptions about:
+        </p>
+
+        <ul>
+            <li><strong>Physics:</strong> Objects persist, fall under gravity, move continuously through space</li>
+            <li><strong>Biology:</strong> Faces are important, certain shapes are threatening, food is valuable</li>
+            <li><strong>Social cognition:</strong> Reciprocity, fairness, theory of mind, emotional contagion</li>
+            <li><strong>Temporal structure:</strong> Actions have consequences, causes precede effects, patterns repeat</li>
+        </ul>
+
+        <p>
+            These priors are not learned from scratch by each individual. They are baked into the neural
+            architecture at birth. A newborn animal already "knows" an enormous amount about the world—not
+            explicitly, but implicitly, in the structure of its sensory processing and motor control systems.
+        </p>
+
+        <div class="note-block">
+            <strong>The Efficiency Gap:</strong> A sparrow can learn to navigate complex 3D environments,
+            avoid predators, and forage for food with a brain the size of a walnut and mere weeks of experience.
+            Current AI systems require GPU clusters, millions of training examples, and gigabytes of parameters
+            to achieve narrower capabilities. The difference is evolutionary priors.
+        </div>
+
+        <h3>The AI Contrast: Brute-Forcing Priors from Data</h3>
+
+        <p>
+            Modern self-supervised learning (like the pre-training phase of LLMs) is an attempt to brute-force
+            reasonable priors from massive amounts of unlabeled data. By predicting masked tokens or next words
+            across billions of sentences, models extract statistical structure that serves as a kind of
+            "learned prior" for downstream tasks.
+        </p>
+
+        <p>
+            This works—impressively so. But it's fundamentally different from biological learning. LLMs don't
+            come with built-in assumptions about language structure, causality, or common-sense physics. They
+            have to rediscover these regularities from scratch, token by token, across terabytes of text.
+        </p>
+
+        <div class="spec-cards">
+            <div class="spec-card">
+                <div class="term">Biological Learning</div>
+                <div class="value">Strong evolutionary priors + sparse data → rapid, generalizable learning</div>
+            </div>
+            <div class="spec-card">
+                <div class="term">Current AI Learning</div>
+                <div class="value">Minimal priors (architecture only) + massive data → effective but brittle</div>
+            </div>
+            <div class="spec-card">
+                <div class="term">Future AI Learning?</div>
+                <div class="value">Structured causal priors + moderate data → robust, sample-efficient systems</div>
+            </div>
+        </div>
+
+        <p>
+            Beck suggests that the path to more capable, efficient AI may not be simply scaling up data and
+            compute. It may require <strong>building in structured causal priors</strong>—giving models innate
+            assumptions about physics, time, objects, and agency, much like evolution has given biological brains.
+        </p>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 6: IMPLICATIONS AND FUTURE DIRECTIONS -->
+        <!-- ============================================================ -->
+
+        <h2>What This Means for the Future of AI</h2>
+
+        <h3>The Limits of Pure Pattern Matching</h3>
+
+        <p>
+            Current AI systems excel at pattern matching. They can detect statistical regularities in images,
+            text, and audio with superhuman accuracy. But pattern matching alone is not intelligence.
+            Intelligence requires:
+        </p>
+
+        <ul>
+            <li><strong>Causal reasoning:</strong> Understanding not just <em>what</em> happens, but <em>why</em></li>
+            <li><strong>Counterfactual thinking:</strong> Imagining what <em>would</em> happen under different interventions</li>
+            <li><strong>Efficient ignorance:</strong> Knowing what information is safe to discard</li>
+            <li><strong>Goal-directed behavior:</strong> Acting to achieve outcomes, not just predict them</li>
+            <li><strong>Embodied grounding:</strong> Understanding through physical interaction, not just symbolic manipulation</li>
+        </ul>
+
+        <p>
+            The Bayesian brain does all of these things naturally. It builds generative causal models, runs
+            counterfactual simulations (imagination), aggressively filters irrelevant information, and is
+            intrinsically goal-directed (seeking reward, avoiding harm). Current AI systems, by contrast,
+            are mostly sophisticated pattern matchers—brilliant at interpolation, brittle at extrapolation.
+        </p>
+
+        <h3>Beyond Auto-Regressive Prediction</h3>
+
+        <p>
+            If LLMs are not generating language the way humans do, what would a more biologically plausible
+            approach look like? Beck doesn't offer a complete blueprint, but his framework suggests several
+            directions:
+        </p>
+
+        <div class="phase-cards">
+            <div class="phase-card prefill">
+                <h4>Hierarchical Generative Models</h4>
+                <p class="what">Instead of token-by-token prediction, build hierarchical models with
+                abstract goals and syntactic plans that guide lower-level generation.</p>
+            </div>
+            <div class="phase-card decode">
+                <h4>Active Inference Architectures</h4>
+                <p class="what">Systems that don't just predict, but act to minimize prediction error—
+                closing the perception-action loop like biological agents.</p>
+            </div>
+            <div class="phase-card prefill">
+                <h4>Causal World Models</h4>
+                <p class="what">Explicit representations of causal structure that enable counterfactual
+                reasoning and transfer to novel situations.</p>
+            </div>
+            <div class="phase-card decode">
+                <h4>Evolutionary Priors</h4>
+                <p class="what">Hard-coded assumptions about physics, objects, agents, and time—reducing
+                the need for massive datasets and improving sample efficiency.</p>
+            </div>
+        </div>
+
+        <h3>The Pragmatic Path Forward</h3>
+
+        <p>
+            Beck's instrumentalist philosophy doesn't dismiss current AI approaches. Auto-regressive LLMs,
+            despite their differences from biological cognition, are incredibly useful tools. The question
+            is not "Are they true representations of intelligence?" but "Are they effective instruments for
+            our goals?"
+        </p>
+
+        <p>
+            The pragmatic path forward likely involves a hybrid approach: leveraging the scaling successes
+            of current methods while gradually incorporating more structure, causality, and embodied grounding.
+            We should celebrate what works—pattern matching at scale is genuinely powerful—while remaining
+            honest about the gaps between artificial and biological intelligence.
+        </p>
+
+        <div class="note-block">
+            <strong>The Instrumentalist Takeaway:</strong> Stop asking "Is AI really intelligent?" or
+            "Does the brain really compute?" These are the wrong questions. Ask instead: "What models
+            and methods are most effective for the tasks we care about?" Let utility, not ontology, guide
+            the research agenda.
+        </div>
+
+        <hr class="section-break">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 7: CONCLUSION -->
+        <!-- ============================================================ -->
+
+        <h2>Conclusion: Intelligence as Efficient Compression</h2>
+
+        <p>
+            We began with a foggy morning drive—a simple example that revealed the brain's extraordinary
+            capacity for real-time Bayesian inference, dynamic sensory reweighting, and efficient information
+            filtering. This capacity is not a neat add-on feature. It is <em>the</em> core mechanism of
+            intelligence.
+        </p>
+
+        <p>
+            Dr. Jeff Beck's instrumentalist framework helps us see both biological and artificial intelligence
+            through a new lens. Models, representations, and causal structures are not mirrors of reality.
+            They are tools—computational instruments shaped by evolution (in biology) or optimization (in AI)
+            to compress the blooming, buzzing confusion of raw sensory data into actionable predictions.
+        </p>
+
+        <p>
+            The brain ignores 90% of reality not because it's deficient, but because ignoring is essential.
+            Intelligence is not about processing everything—it's about processing the <em>right</em> things
+            efficiently. Current AI systems, with their blank-slate learning and exhaustive data processing,
+            have not yet mastered this art.
+        </p>
+
+        <p>
+            The future of AI may depend on learning the brain's greatest trick: knowing what to ignore,
+            deploying structured priors, reasoning causally, and building models calibrated to the macroscopic
+            world of embodied action. Not because these approaches are "more biological," but because they
+            may be more <em>effective</em> instruments for creating robust, generalizable, and efficient
+            intelligence.
+        </p>
+
+        <p class="key-formula">
+            <strong>Intelligence ≠ Processing Everything</strong><br>
+            <strong>Intelligence = Processing the Right Things at the Right Time with Minimal Waste</strong>
+        </p>
+
+        <p>
+            That's the lesson from neuroscience. That's the challenge for AI. And that's why understanding
+            how your brain ignores 90% of reality might be the key to building machines that finally think
+            like us.
+        </p>
+
+        <hr class="section-break">
+
+        <div class="note-block">
+            <p><strong>Further Reading & Exploration:</strong></p>
+            <ul>
+                <li>Zoubin Ghahramani's work on Bayesian Machine Learning and the Chinese Restaurant Process</li>
+                <li>Karl Friston's Free Energy Principle and Active Inference framework</li>
+                <li>Judea Pearl's <em>The Book of Why</em> on causal reasoning</li>
+                <li>Andy Clark's <em>Surfing Uncertainty</em> on predictive processing in the brain</li>
+                <li>Anthony Zador on the role of genomic priors in neural circuit development</li>
+            </ul>
+        </div>
+
+    </article>
+
+    <footer>
+        <p>&copy; 2026 Kieran Schubert. All rights reserved.</p>
+    </footer>
+
+    <script>Prism.highlightAll();</script>
+</body>
+</html>
